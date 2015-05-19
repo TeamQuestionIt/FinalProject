@@ -130,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a859433d3f4a69e4e901a383ff816062, type: 2}
+  m_Controller: {fileID: 9100000, guid: 448576345a8017644872c0e0dc41e9d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -146,17 +146,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a85da3fd1adb7ec4eb7b8c21baf5120c, type: 3}
+  m_Script: {fileID: 11500000, guid: 76940cf34400ae34b8e65342c8375645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tvController: {fileID: 9100000, guid: a859433d3f4a69e4e901a383ff816062, type: 2}
-  clockController: {fileID: 9100000, guid: eeb6104079124a14a8e0b1845437da6f, type: 2}
-  camController: {fileID: 9100000, guid: ae2677821d2cd674dbd2ee822ea63216, type: 2}
-  lampcontroller: {fileID: 9100000, guid: 06dcd6332ede90648988240fb3ff9a75, type: 2}
-  tvAttack: {fileID: 109900, guid: 919a23e3fa136c742904af011acf43eb, type: 2}
-  clockAttack: {fileID: 161378, guid: 265d5bc370410454db2f38befd1be94c, type: 2}
-  camAttack: {fileID: 109900, guid: 919a23e3fa136c742904af011acf43eb, type: 2}
-  currentBody: 0
 --- !u!114 &11439258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,7 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8263d76794a801f499f3ed57c59ffa30, type: 3}
+  m_Script: {fileID: 11500000, guid: 21ba7eaa62daeed41a3ff95f47efb8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11439260
@@ -176,13 +168,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3ee10109701af4da3eed812187a18d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9494fa1fc7bb74e43a5776336dd9816f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 3
   jumpForce: 400
   groundCheck: {fileID: 469586}
-  whatIsGround: {}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1280
   facingRight: 1
 --- !u!114 &11442664
 MonoBehaviour:
@@ -192,13 +186,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050ed4592c441fd41b26e477a730a5e8, type: 3}
+  m_Script: {fileID: 11500000, guid: ae1067f4658b523448217f5f564e72dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 40
-  canHit: {}
-  attackPoint: {fileID: 449578}
-  attackPrefab: {fileID: 109900, guid: 919a23e3fa136c742904af011acf43eb, type: 2}
 --- !u!114 &11442666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,13 +197,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0de121cac427b34e856318b5038414f, type: 3}
+  m_Script: {fileID: 11500000, guid: eab327fa15a0d4547a0632b6d6d6221b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  dead: 0
-  isPlayer: 1
-  healthBar: {fileID: 0}
 --- !u!114 &11482728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,7 +208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 139262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce89208f9619a364f84d4aaf48909afe, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c1c91036c981014aa644646396e772c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21209312
@@ -249,7 +235,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6d06e69b3ffe1fe4cb63f78017d5d1c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 529e279429367244fa5ff27bf94f6a59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
