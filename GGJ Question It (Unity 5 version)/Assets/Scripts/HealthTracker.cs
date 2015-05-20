@@ -5,16 +5,17 @@ using System.Collections;
 public class HealthTracker : MonoBehaviour {
 
     public float maxHealth = 100;
+	private static float savedHealth = 100f;
     public bool dead = false;
     public bool isPlayer = false;
-
     private GameManager gameManager;
     private float displayedHealth;
     private float currentHealth;
 
-    private static float savedHealth = 100f;
+    
 
     public GameObject healthBar;
+	public GameObject enemyHealthBar;
 	
 	void Awake ()
     {
@@ -68,4 +69,8 @@ public class HealthTracker : MonoBehaviour {
         if (healthBar != null)
             healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(amount, 100f);
     }
+
+
+
+
 }

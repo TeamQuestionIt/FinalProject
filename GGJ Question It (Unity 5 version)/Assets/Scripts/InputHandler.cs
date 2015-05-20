@@ -3,9 +3,9 @@ using System.Collections;
 
 public class InputHandler : MonoBehaviour {
 
-    //private GameManager manager;
+    private GameManager manager;
     private Character_Controller controller;
-    private PlayerAttack attack;
+    public PlayerAttack attack;
 
     public void Start()
     {
@@ -19,14 +19,24 @@ public class InputHandler : MonoBehaviour {
         if (Input.GetAxis("Jump") > 0)
             controller.Jump();
 
-        if (Input.GetAxis("Fire1") > 0)
-            attack.LightAttack();
+		//THIS IS ALL THE STUFF THAT'S FUKT UP WITH ATTACKING
+        if (Input.GetAxis ("Fire1") > 0)
+			//attack.FireLightAttack();
+			attack.LightAttack();
+			
 
-		if (Input.GetAxis("Fire2") > 0)
-			attack.HeavyAttack();
+		if (Input.GetAxis ("Fire2") > 0)
+			//attack.FireHeavyAttack();
+			attack.HeavyAttack ();
+			
+			
 
 		if (Input.GetAxis("Fire3") > 0)
+			//attack.FireSpecialAttack();
 			attack.SpecialAttack();
+			//Fire special attack makes player shoot what's assigned to the prefab in player holder
+		//special attack shoots whatever is assigned in light attack prefab for some reason
+
 
         //using the axis this way left a kind of slow-down time to stopping that was difficult to control
         /*float horiz = Input.GetAxis("Horizontal");

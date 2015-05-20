@@ -5,9 +5,11 @@ public class EnemySpawner : MonoBehaviour {
 
     public GameObject Player;
     public GameObject enemyPrefab;
+	public GameObject enemyHealth;
     public float delay = 3f; //seconds between each spawn
 	public int spawnCount = 0;
     private float timer = 0f;
+
 
 
     void Start()
@@ -26,6 +28,16 @@ public class EnemySpawner : MonoBehaviour {
 
             GameObject newMonster = Instantiate(enemyPrefab, transform.position, transform.rotation) as GameObject;
             newMonster.GetComponent<MeleeMonster>().SetTarget(Player);
+
+			Canvas healthBar = Instantiate(enemyHealth, transform.position, transform.rotation) as Canvas;
+			healthBar.transform.position = Camera.main.WorldToScreenPoint(newMonster.transform.position);
+
         }
+
+
+
 	}
+
+
+
 }
