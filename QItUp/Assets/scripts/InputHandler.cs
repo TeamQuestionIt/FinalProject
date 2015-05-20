@@ -5,6 +5,7 @@ public class InputHandler : MonoBehaviour {
 
     private Character_Controller controller;
     private PlayerAttack attack;
+    private float horizontalInput = 0f;
 
     public void Start()
     {
@@ -34,7 +35,7 @@ public class InputHandler : MonoBehaviour {
         }
 
         //using buttons like this (left and right assigned in the input manager) gives more precise controls
-        float horizontalInput = Input.GetAxis("Horizontal");
-        controller.SetDirection(new Vector2(horizontalInput, 0f));
+        horizontalInput = Input.GetAxis("Horizontal");
+        controller.Move(horizontalInput);
     }
 }

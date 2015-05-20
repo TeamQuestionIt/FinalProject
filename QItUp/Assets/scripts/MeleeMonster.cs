@@ -64,7 +64,7 @@ public class MeleeMonster : MonoBehaviour {
                 move.x *= -1;
         }
 
-        controller.SetDirection(move);
+        //controller.SetDirection(move);
     }
 
      private void Attack()
@@ -82,7 +82,7 @@ public class MeleeMonster : MonoBehaviour {
      {
          if (health.dealDamage(dmg))
          {
-             controller.SetDirection(new Vector2());
+             //controller.SetDirection(new Vector2());
              anim.SetTrigger("Dead");
              GetComponent<Collider2D>().enabled = false;
          }
