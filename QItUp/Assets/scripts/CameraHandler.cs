@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CameraHandler : MonoBehaviour {
 
@@ -19,7 +20,8 @@ public class CameraHandler : MonoBehaviour {
     public float cameraYMax = 0;
     public bool lockY = true;
 
-    public float panSpeed = 0;// 0 is instant
+    public float panSpeedX = 0;// 0 is instant
+    public float panSpeedY = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -50,8 +52,28 @@ public class CameraHandler : MonoBehaviour {
             }
         }
 
+        //limit speed
+        if (panSpeedX != 0)
+        {
+            if (panSpeedX < Math.Abs(newX - transform.position.x))
+            {
+                if (transform.position.x - newX <= 0)
+                {
+                    newX = transform.position.x + panSpeedX;
+                }
+                else
+                {
+                    newX = transform.position.x - panSpeedX;
+                }
+            }
+        }
+
+        if (panSpeedY != 0)
+        {
+
+        }
+
         transform.position = new Vector3(newX, newY, transform.position.z);
-	
 	}
 
     private float LerpFindPlayerXT()
