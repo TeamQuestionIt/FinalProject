@@ -1,17 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerAttack : MonoBehaviour
 {
-
-    public float strength = 10f;
-    public LayerMask canHit;
-    public Transform attackPoint;
+    //left over from previous code base
     public GameObject attackPrefab;
 
+    //time between ability to power attack
+    public float PowerMoveWaitTime = 3.0f;
+   
+    private bool isAttacking = false;
     private float timer = 0f;
+    private bool canPowerMove = true;
     private Animator anim;
-    private bool launching = false;
+
+    /// <summary>
+    /// Type of attacks.
+    /// </summary>
+    public enum ATTACK
+    {
+        LIGHT,
+        HEAVY,
+        POWER
+    }
 
     public void Start()
     {
@@ -20,34 +32,50 @@ public class PlayerAttack : MonoBehaviour
 
     public void Update()
     {
-        if (timer > 0)
-            timer -= Time.deltaTime;
-    }
-
-    public void StartAttack()
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        //only need to handle timer after power attack ran, so save some cycles
+        if (!canPowerMove && timer > 0)
         {
-            anim.SetTrigger("LightAttack");
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = PowerMoveWaitTime;
+            canPowerMove = true;
         }
 
     }
 
-    public void FireAttack()
+    /// <summary>
+    /// Used to set the bool isAttacking field by a string. 
+    /// </summary>
+    /// <param name="value">Either "true" or "false"</param>
+    public void SetAttacking(string value)
     {
-        GameObject atk = Instantiate(attackPrefab, attackPoint.position, attackPoint.rotation) as GameObject;
-        timer = atk.GetComponentInChildren<Striker>().cooldown;
-        Physics2D.IgnoreCollision(atk.GetComponentInChildren<Collider2D>(), GetComponent<Collider2D>());
-        launching = false;
-        anim.SetTrigger("LightAttack");
+        isAttacking = Boolean.Parse(value);
     }
 
-    public void Attack()
+    public void Attack(ATTACK type)
     {
-        Collider2D other = Physics2D.OverlapCircle(attackPoint.position, .2f, canHit);
-        if (other != null)
+        bool isIdleState = anim.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        if (!isAttacking)
         {
-            other.GetComponent<MeleeMonster>().TakeDamage(strength);
+            switch (type)
+            {
+                case ATTACK.LIGHT:
+                    anim.SetTrigger("LightAttack");
+                    isAttacking = true;
+                    break;
+                case ATTACK.HEAVY:
+                    break;
+                case ATTACK.POWER:
+                    if(canPowerMove)
+                    {
+                        anim.SetTrigger("PowerAttack");
+                        isAttacking = true;
+                        canPowerMove = false;
+                    }
+                    break;
+            }
         }
     }
 }

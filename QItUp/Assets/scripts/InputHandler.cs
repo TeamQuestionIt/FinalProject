@@ -15,22 +15,26 @@ public class InputHandler : MonoBehaviour {
     public void Update()
     {
         if (Input.GetButtonDown("Jump"))
+        {
             controller.Jump();
+            return;
+        }
+            
 
         if (Input.GetButtonDown("Fire1"))
-            attack.StartAttack();
+        {
+            attack.Attack(PlayerAttack.ATTACK.LIGHT);
+            return;
+        }
 
-        //using the axis this way left a kind of slow-down time to stopping that was difficult to control
-        /*float horiz = Input.GetAxis("Horizontal");
-        controller.SetDirection(new Vector2(horiz, 0f));*/
+        if(Input.GetButtonDown("Fire2"))
+        {
+            attack.Attack(PlayerAttack.ATTACK.POWER);
+            return;
+        }
 
         //using buttons like this (left and right assigned in the input manager) gives more precise controls
         float horizontalInput = Input.GetAxis("Horizontal");
         controller.SetDirection(new Vector2(horizontalInput, 0f));
-    }
-
-    public void FixedUpdate()
-    {
-        
     }
 }
