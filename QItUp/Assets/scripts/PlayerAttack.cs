@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerAttack : MonoBehaviour {
+public class PlayerAttack : MonoBehaviour
+{
 
     public float strength = 10f;
     public LayerMask canHit;
@@ -25,11 +26,11 @@ public class PlayerAttack : MonoBehaviour {
 
     public void StartAttack()
     {
-        if(timer <= 0 && !launching && attackPrefab != null)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-            anim.SetTrigger("Attack");
-            launching = true;
+            anim.SetTrigger("LightAttack");
         }
+
     }
 
     public void FireAttack()
@@ -38,6 +39,7 @@ public class PlayerAttack : MonoBehaviour {
         timer = atk.GetComponentInChildren<Striker>().cooldown;
         Physics2D.IgnoreCollision(atk.GetComponentInChildren<Collider2D>(), GetComponent<Collider2D>());
         launching = false;
+        anim.SetTrigger("LightAttack");
     }
 
     public void Attack()

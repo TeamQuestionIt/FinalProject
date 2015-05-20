@@ -11,10 +11,9 @@ public class Character_Controller : MonoBehaviour
     public LayerMask whatIsGround;
     public bool facingRight = true;
 
+    public Vector2 Direction { get; set; }
 
     private bool grounded = true;
-    private float groundRadius = .2f;
-    private int jumpTimer = 0;
 
 
     Animator anim;
@@ -28,23 +27,10 @@ public class Character_Controller : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
-    {
-
-    }
-
     public void FixedUpdate()
     {
-        if (jumpTimer > 0)
-            jumpTimer--; //counts frames
-
-        bool check = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        if (!grounded && check && rigidBody.velocity.y < 0)
-            anim.SetTrigger("Landed");
-        grounded = check;
-        anim.SetBool("Grounded", grounded);
-
-        float move = inputDirection.x;
+        //value from 1 (move right), -1 (move left)
+         float move = inputDirection.x;
 
         anim.SetFloat("Speed", Mathf.Abs(move * maxSpeed));
 
@@ -66,11 +52,9 @@ public class Character_Controller : MonoBehaviour
 
     public void Jump()
     {
-        if (grounded && jumpTimer <= 0)
+        if (grounded)
         {
             rigidBody.AddForce(new Vector2(0, jumpForce));
-            jumpTimer = 5;
-            anim.SetBool("Grounded", false);
             anim.SetTrigger("Jumped");
             grounded = false;
         }
@@ -79,6 +63,21 @@ public class Character_Controller : MonoBehaviour
     public void SetDirection(Vector2 input)
     {
         inputDirection = input.normalized;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        //collided with edge collider on the background ie ground
+        if (col.gameObject.name == "Street1")
+        {
+            grounded = true;
+            //check if current animation state is falling
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("Falling"))
+            {
+                anim.SetTrigger("Landed");
+            }
+            
+        }
     }
 
 }
