@@ -96,7 +96,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 439262, guid: 9e91306b25a80e44c85ee413541feb5f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.98199999
+      value: .549000025
       objectReference: {fileID: 0}
     - target: {fileID: 439262, guid: 9e91306b25a80e44c85ee413541feb5f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -229,6 +229,23 @@ EdgeCollider2D:
   - {x: -2.27130437, y: -.0122196674}
   - {x: -1.86424649, y: -.0122195482}
   - {x: -.7591784, y: -.0122196674}
+--- !u!1 &1024988129 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159726, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
+  m_PrefabInternal: {fileID: 1635129060}
+--- !u!61 &1024988130
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024988129}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .0066151619, y: -.102833152}
+  serializedVersion: 2
+  m_Size: {x: .11549934, y: .0504155159}
 --- !u!1 &1542986585
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +339,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495706, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .611999989
+      value: -2.52900004
       objectReference: {fileID: 0}
     - target: {fileID: 495706, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -351,6 +368,10 @@ Prefab:
     - target: {fileID: 495706, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895210, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}

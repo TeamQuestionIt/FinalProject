@@ -5,14 +5,18 @@ public class ImpAI : MonoBehaviour
 {
 
     public Vector2 jumpForce = new Vector2(10f, 250f);
+    public float dxMultiplier = 10f;
     public Vector2 maxJumpVelocity = new Vector2(10f, 10f);
     public float JumpWaitTimer = 2f;
+    public bool useVariableJumpDistance = true;
+    public bool useVariableJumpTimer = true;
     //could randomize this a bit 1-5?
     private float timer = 0;
 
     private GameObject playerInstance;
     private Rigidbody2D rBody;
     private float xDirection = 0;
+    private bool onGround = false;
 
 
 
@@ -25,16 +29,28 @@ public class ImpAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (timer > 0)
+        if (onGround)
         {
-            timer -= Time.deltaTime;
-        }
-        else
-        {
-            timer = JumpWaitTimer;
-            Jump();
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                if (useVariableJumpTimer)
+                {
+                    timer = Random.Range(0f, 5f);
+                    Debug.Log(timer);
+                }
+                else
+                {
+                    timer = JumpWaitTimer;
+                }
+
+                Jump();
+            } 
         }
 
         //debug
@@ -48,8 +64,22 @@ public class ImpAI : MonoBehaviour
     private void Jump()
     {
         Debug.Log("jump");
+        onGround = false;
         GetXDirection();
-        Vector2 force = new Vector2(jumpForce.x * xDirection, jumpForce.y);
+        float dxToPlayer = Vector2.Distance(transform.position, playerInstance.transform.position);
+
+
+        Vector2 force;
+        if (useVariableJumpDistance)
+        {
+            force = new Vector2((jumpForce.x / dxToPlayer) * dxMultiplier * xDirection, jumpForce.y);
+        }
+        else
+        {
+            force = new Vector2(jumpForce.x * xDirection, jumpForce.y);
+        }
+
+        Debug.Log(force);
         rBody.AddForce(force);
     }
 
@@ -64,6 +94,16 @@ public class ImpAI : MonoBehaviour
         else
         {
             xDirection = -1;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        //hacky should do this better, probably use a ground tag
+        if(col.gameObject.name == "Street1")
+        {
+            onGround = true;
+
         }
     }
 }
