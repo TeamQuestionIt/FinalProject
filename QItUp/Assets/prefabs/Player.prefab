@@ -62,7 +62,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.43300009, y: -1.42700005, z: 0}
+  m_LocalPosition: {x: .409999996, y: -1.42999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469586}
@@ -181,10 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 2
   jumpForce: 400
-  groundCheck: {fileID: 469586}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1280
   facingRight: 1
 --- !u!114 &11442664
 MonoBehaviour:
@@ -197,12 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1067f4658b523448217f5f564e72dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 40
-  canHit:
-    serializedVersion: 2
-    m_Bits: 2048
-  attackPoint: {fileID: 449578}
   attackPrefab: {fileID: 109900, guid: 7e9c11a9a15cce24ebb0e61cfc211b91, type: 2}
+  PowerMoveWaitTime: 3
 --- !u!114 &11442666
 MonoBehaviour:
   m_ObjectHideFlags: 1
