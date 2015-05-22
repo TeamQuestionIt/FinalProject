@@ -17,9 +17,8 @@ public class ImpAI : MonoBehaviour
     private Rigidbody2D rBody;
     private float xDirection = 0;
     private bool onGround = false;
-
-
-
+    private bool isFacingRight = false;
+  
     // Use this for initialization
     void Start()
     {
@@ -90,20 +89,36 @@ public class ImpAI : MonoBehaviour
 
             //need to go right
             xDirection = 1;
+            if(!isFacingRight)
+            {
+                Flip();
+                isFacingRight = true;
+            }
+
         }
         else
         {
             xDirection = -1;
+            if(isFacingRight)
+            {
+                Flip();
+                isFacingRight = false;
+            }
         }
+    }
+
+    private void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         //hacky should do this better, probably use a ground tag
-        if(col.gameObject.name == "Street1")
+        if (col.gameObject.name == "Street1")
         {
             onGround = true;
-
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using System;
 
 public class PlayerAttack : MonoBehaviour
@@ -9,11 +9,14 @@ public class PlayerAttack : MonoBehaviour
 
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
+    public List<BoxCollider2D> hitBoxes = new List<BoxCollider2D>();
+    public BoxCollider2D hittableBox;
    
     private bool isAttacking = false;
     private float timer = 0f;
     private bool canPowerMove = true;
     private Animator anim;
+
 
     /// <summary>
     /// Type of attacks.
@@ -78,4 +81,8 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
+
+
+
 }

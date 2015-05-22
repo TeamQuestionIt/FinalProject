@@ -30,6 +30,11 @@ public class Character_Controller : MonoBehaviour
 
     public void Move(float direction)
     {
+        //this fixes bug, if direction was zero it locked x velocity to 0.
+        if(direction == 0)
+        {
+            return;
+        }
         rigidBody.velocity = new Vector2(direction * maxSpeed, rigidBody.velocity.y);
         //update animator, this line controls
         anim.SetFloat("Speed", Mathf.Abs(direction * maxSpeed));
