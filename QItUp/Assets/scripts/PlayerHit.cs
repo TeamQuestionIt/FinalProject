@@ -9,6 +9,8 @@ public class PlayerHit : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rBody;
 
+    public uint hitPoints = 100;
+
     public void Hit(Collider2D hittingCollider)
     {
         Debug.Log(hittingCollider.gameObject.name + " hit me!");
@@ -33,13 +35,15 @@ public class PlayerHit : MonoBehaviour
         //check if enemy
         if (col.tag == "enemy")
         {
-            Debug.Log("enemy collided with my trigger.");
+            //Debug.Log("enemy collided with my trigger.");
+
+            //will need to make this more generic when more enemies added to family.
+            //should make base class
             //check if hitbox
             if (col.gameObject.GetComponent<ImpAttack>().IsHitBox(col))
             {
                 //repel
-                Debug.Log("Repel!");
-                Rigidbody2D playerRBody = GetComponent<Rigidbody2D>();
+                //Debug.Log("Repel!");
                 Rigidbody2D enemyRBody = col.GetComponent<Rigidbody2D>();
 
                 //get repel direction
@@ -56,15 +60,20 @@ public class PlayerHit : MonoBehaviour
 
 
                 //stop all velocity first
-                playerRBody.velocity = Vector2.zero;
+                rBody.velocity = Vector2.zero;
                 enemyRBody.velocity = Vector2.zero;
                 //playerRBody.AddForce(-playerRBody.velocity, ForceMode2D.Impulse);
                 // enemyRBody.AddForce(-enemyRBody.velocity, ForceMode2D.Impulse);
 
                 enemyRBody.velocity = new Vector2(hitRepelVelocity.x * -playerRepelDirection, hitRepelVelocity.y);
-                playerRBody.velocity = new Vector2(hitRepelVelocity.x * playerRepelDirection, hitRepelVelocity.y);
+                rBody.velocity = new Vector2(hitRepelVelocity.x * playerRepelDirection, hitRepelVelocity.y);
                 //enemyRBody.AddForce(new Vector2(hitRepelForce.x * -playerRepelDirection, hitRepelForce.y));
                 //playerRBody.AddForce(new Vector2(hitRepelForce.x * playerRepelDirection, hitRepelForce.y));
+
+                
+                //take off hitpoints if any
+                hitPoints -= (uint) col.gameObject.GetComponent<ImpAttack>().Damage;
+                Debug.Log("Hitpoints: " + hitPoints);
                 
             }
 

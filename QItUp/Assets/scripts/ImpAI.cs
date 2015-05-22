@@ -41,7 +41,7 @@ public class ImpAI : MonoBehaviour
                 if (useVariableJumpTimer)
                 {
                     timer = Random.Range(0f, 5f);
-                    Debug.Log(timer);
+                    //Debug.Log(timer);
                 }
                 else
                 {
@@ -62,7 +62,7 @@ public class ImpAI : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("jump");
+        //Debug.Log("jump");
         onGround = false;
         GetXDirection();
         float dxToPlayer = Vector2.Distance(transform.position, playerInstance.transform.position);
@@ -78,7 +78,7 @@ public class ImpAI : MonoBehaviour
             force = new Vector2(jumpForce.x * xDirection, jumpForce.y);
         }
 
-        Debug.Log(force);
+        //Debug.Log(force);
         rBody.AddForce(force);
     }
 
