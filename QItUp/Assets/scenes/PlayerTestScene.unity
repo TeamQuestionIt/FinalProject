@@ -229,7 +229,7 @@ EdgeCollider2D:
   - {x: -2.27130437, y: -.0122196674}
   - {x: -1.86424649, y: -.0122195482}
   - {x: -.7591784, y: -.0122196674}
---- !u!1001 &1029873910
+--- !u!1001 &1056711150
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -238,11 +238,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.46544266
+      value: -2.74699998
       objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.42640698
+      value: -1.29499996
       objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -266,7 +266,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 110334, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}

@@ -13,10 +13,9 @@ GameObject:
   - 61: {fileID: 6125202}
   - 61: {fileID: 6160008}
   - 95: {fileID: 9503182}
-  - 114: {fileID: 11494592}
   - 114: {fileID: 11493666}
   - 114: {fileID: 11425302}
-  - 114: {fileID: 11461828}
+  - 114: {fileID: 11416434}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .256000012, y: -1.39999998, z: 0}
+  m_LocalPosition: {x: -2.74699998, y: -1.29499996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,6 +93,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11416434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89b367ea494b9d4eb959c3a4e5399a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitRepelVelocity: {x: 3, y: 5}
+  hitPoints: 100
+  PowerMoveWaitTime: 3
 --- !u!114 &11425302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,21 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9494fa1fc7bb74e43a5776336dd9816f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 2
-  jumpForce: 450
-  facingRight: 1
---- !u!114 &11461828
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49c35afb1d54d14b93920aa615639e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitRepelVelocity: {x: 3, y: 5}
+  jumpForce: {x: 0, y: 450}
+  maxVelocity: 2
+  isFacingRight: 1
 --- !u!114 &11493666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,21 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ba7eaa62daeed41a3ff95f47efb8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11494592
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1067f4658b523448217f5f564e72dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackPrefab: {fileID: 0}
-  PowerMoveWaitTime: 3
-  hitBoxes: []
-  hittableBox: {fileID: 6160008}
 --- !u!212 &21211936
 SpriteRenderer:
   m_ObjectHideFlags: 1

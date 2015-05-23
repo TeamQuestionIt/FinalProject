@@ -11,7 +11,7 @@ public class Striker : MonoBehaviour {
 
     public void Start()
     {
-        if(!FindObjectOfType<InputHandler>().gameObject.GetComponent<Character_Controller>().facingRight)
+        if(!FindObjectOfType<InputHandler>().gameObject.GetComponent<Character_Controller>().isFacingRight)
         {
             Vector3 newScale = transform.localScale;
             newScale.x *= -1;

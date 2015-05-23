@@ -5,24 +5,30 @@ using System;
 public class Character_Controller : MonoBehaviour
 {
 
-    public float maxSpeed = 10f;
-    public float jumpForce = 700f;
-    public bool facingRight = true;
+    //public float MaxVelocity = 10f;
+    //public float jumpForce = 700f;
+    //public bool IsFacingRight = true;
+
+    public Vector2 jumpForce = new Vector2(0, 450);
+    public float maxVelocity = 2;
+    public bool isFacingRight = true;
+
 
     private bool onGround = true;
     private Animator anim;
-    private Rigidbody2D rigidBody;
+    private Rigidbody2D rBody;
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
-        rigidBody = GetComponent<Rigidbody2D>();
+        rBody = GetComponent<Rigidbody2D>();
+        isFacingRight = true;
     }
 
 
     private void Flip()
     {
-        facingRight = !facingRight;
+        isFacingRight = !isFacingRight;
         Vector3 newScale = anim.transform.localScale;
         newScale.x *= -1;
         anim.transform.localScale = newScale;
@@ -31,18 +37,18 @@ public class Character_Controller : MonoBehaviour
     public void Move(float direction)
     {
         //this fixes bug, if direction was zero it locked x velocity to 0.
-        if(direction == 0)
+        if (direction == 0)
         {
             return;
         }
-        rigidBody.velocity = new Vector2(direction * maxSpeed, rigidBody.velocity.y);
+        rBody.velocity = new Vector2(direction * maxVelocity, rBody.velocity.y);
         //update animator, this line controls
-        anim.SetFloat("Speed", Mathf.Abs(direction * maxSpeed));
+        //anim.SetFloat("Speed", Mathf.Abs(direction * maxVelocity));
 
 
-        if (direction > 0 && !facingRight)
+        if (direction > 0 && !isFacingRight)
             Flip();
-        else if (direction < 0 && facingRight)
+        else if (direction < 0 && isFacingRight)
             Flip();
     }
 
@@ -50,7 +56,7 @@ public class Character_Controller : MonoBehaviour
     {
         if (onGround)
         {
-            rigidBody.AddForce(new Vector2(0, jumpForce));
+            rBody.AddForce(jumpForce);
             anim.SetTrigger("Jumped");
             onGround = false;
         }
