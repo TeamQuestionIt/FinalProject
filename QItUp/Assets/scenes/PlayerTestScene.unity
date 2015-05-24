@@ -545,14 +545,6 @@ Prefab:
       propertyPath: scoreUI
       value: 
       objectReference: {fileID: 56267620}
-    - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: maxRepelVelocity.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: maxRepelVelocity.y
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   m_IsPrefabParent: 0

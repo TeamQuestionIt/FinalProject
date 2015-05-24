@@ -120,11 +120,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPrefab: {fileID: 0}
   hitRepelVelocity: {x: 3, y: 5}
+  maxRepelVelocity: {x: 5, y: 10}
   hitPoints: 100
+  currentDamage: 0
   PowerMoveWaitTime: 3
   hitBoxes:
   - {fileID: 0}
   currentHitBox: {fileID: 6176132}
+  scoreUI: {fileID: 0}
+  score: 0
 --- !u!114 &11425302
 MonoBehaviour:
   m_ObjectHideFlags: 1
