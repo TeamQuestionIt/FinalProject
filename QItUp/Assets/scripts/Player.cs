@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public uint hitPoints = 100;
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
+    public BoxCollider2D[] hitBoxes;
+    public BoxCollider2D currentHitBox;
 
     private Animator anim;
     private Rigidbody2D rBody;
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     private bool isAttacking = false;
     private float timer = 0f;
     private bool canPowerMove = true;
+    
 
     /// <summary>
     /// Type of attacks.
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
             {
                 case ATTACK.LIGHT:
                     anim.SetTrigger("LightAttack");
+                    SetHitBox(ATTACK.LIGHT);
                     isAttacking = true;
                     break;
                 case ATTACK.HEAVY:
@@ -137,5 +141,16 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
+
+    private void SetHitBox(ATTACK attackType)
+    {
+        currentHitBox.size = hitBoxes[(int)attackType].size;
+        currentHitBox.offset = hitBoxes[(int)attackType].offset;
+    }
+
+    public void ClearHitBox()
+    {
+        currentHitBox.size = Vector2.zero;
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11493666}
   - 114: {fileID: 11425302}
   - 114: {fileID: 11416434}
+  - 61: {fileID: 6176132}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -76,6 +77,19 @@ BoxCollider2D:
   m_Offset: {x: -.0402287394, y: .0109715462}
   serializedVersion: 2
   m_Size: {x: .170285225, y: .500532687}
+--- !u!61 &6176132
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110334}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.0573050976, y: .02543962}
+  serializedVersion: 2
+  m_Size: {x: .0490706638, y: .107261688}
 --- !u!95 &9503182
 Animator:
   serializedVersion: 3
@@ -104,9 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89b367ea494b9d4eb959c3a4e5399a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPrefab: {fileID: 0}
   hitRepelVelocity: {x: 3, y: 5}
   hitPoints: 100
   PowerMoveWaitTime: 3
+  hitBoxes:
+  - {fileID: 0}
+  currentHitBox: {fileID: 6176132}
 --- !u!114 &11425302
 MonoBehaviour:
   m_ObjectHideFlags: 1
