@@ -1,42 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ImpAI : MonoBehaviour
-{
+public class Enemy_Imp : MonoBehaviour {
+
     public BoxCollider2D hitBox;
-    public Vector2 jumpForce = new Vector2(10f, 250f);
-    public float attackDx = 10f;//maximum distance from player to start attack
-    public float dxMultiplier = 10f;//needed if using variable jumping
-    public Vector2 maxJumpVelocity = new Vector2(10f, 10f);
+    public GameObject playerInstance;
+    public uint damage = 10;
+    public Vector2 jumpForce = new Vector2(25f, 250f);
+    public float dxMultiplier = 10f;
+    public Vector2 maxJumpVelocity = new Vector2(5f, 55f);
     public float JumpWaitTimer = 2f;
+
+    //these are for trying different flavors during development phase
     public bool useVariableJumpDistance = true;
     public bool useVariableJumpTimer = true;
-    public bool useConstantAttackAnimation = false;
-    //could randomize this a bit 1-5?
-    private float timer = 0;
 
-    private GameObject playerInstance;
+    private float timer = 0;
+    
     private Rigidbody2D rBody;
-    private Animator anim;
     private float xDirection = 0;
     private bool onGround = false;
     private bool isFacingRight = false;
-    private float hWidthHitBox;
 
-    // Use this for initialization
-    void Start()
+    public bool IsHitBox(Collider2D col)
     {
-        playerInstance = GameObject.Find("Player");
-        rBody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        timer = JumpWaitTimer;
-        hWidthHitBox = hitBox.size.x / 2;
+        BoxCollider2D b = col as BoxCollider2D;
+        if (null == b)
+        {
+            return false;
+        }
+        return b.size == hitBox.size && b.offset == hitBox.offset;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Start()
     {
-        if (onGround)
+        rBody = GetComponent<Rigidbody2D>();
+        timer = JumpWaitTimer;
+	}
+
+    private void FixedUpdate()
+    {
+	 if (onGround)
         {
             if (timer > 0)
             {
@@ -54,19 +58,10 @@ public class ImpAI : MonoBehaviour
                     timer = JumpWaitTimer;
                 }
 
-                //check if within attack distance
-
                 Jump();
             }
         }
-
-        //debug
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Jump();
-        }
-
-    }
+	}
 
     private void Jump()
     {
@@ -88,17 +83,9 @@ public class ImpAI : MonoBehaviour
 
         //Debug.Log(force);
         rBody.AddForce(force);
-        if (useConstantAttackAnimation)
-        {
-            anim.SetTrigger("Attack");
-        }
-        //check distance so not always firing attack animation.
-        else if (Vector3.Distance(transform.position, playerInstance.transform.position) < attackDx)
-        {
-            anim.SetTrigger("Attack");
-        }
-
     }
+
+
 
     private void GetXDirection()
     {

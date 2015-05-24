@@ -14,13 +14,13 @@ public class BodySwitcher : MonoBehaviour {
 
     public bodyType currentBody = bodyType.tv;
     private Animator anim;
-    private PlayerAttack attack;
+    private Player attack;
 
 
     public void Start()
     {
         anim = GetComponent<Animator>();
-        attack = GetComponent<PlayerAttack>();
+        attack = GetComponent<Player>();
     }
 
     public void Update()

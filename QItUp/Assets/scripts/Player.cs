@@ -4,6 +4,8 @@ using System;
 
 public class Player : MonoBehaviour
 {
+    //this fixes compile bug in BodySwitcher.cs
+    public GameObject attackPrefab;
     //velocity of repulsion force if player is hit.
     public Vector2 hitRepelVelocity = new Vector2(10, 100);
     public uint hitPoints = 100;
