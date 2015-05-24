@@ -12,6 +12,10 @@ public class ImpAI : MonoBehaviour
     public bool useVariableJumpDistance = true;
     public bool useVariableJumpTimer = true;
     public bool useConstantAttackAnimation = false;
+    public int hitPoints = 20;
+    public int scoreValue = 10;
+    public uint damage = 5;
+
     //could randomize this a bit 1-5?
     private float timer = 0;
 
@@ -58,6 +62,14 @@ public class ImpAI : MonoBehaviour
 
                 Jump();
             }
+        }
+
+        //check for dead
+        if (hitPoints < 0)
+        {
+            Debug.Log("i'm dead jim.");
+            playerInstance.GetComponent<Player>().score += scoreValue;
+            Destroy(gameObject);
         }
 
         //debug
@@ -137,6 +149,20 @@ public class ImpAI : MonoBehaviour
         if (col.gameObject.name == "Street1")
         {
             onGround = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name == "Player")
+        {
+            Player playerScript = col.gameObject.GetComponent<Player>();
+            if (playerScript.IsHitBox(col))
+            {
+                Debug.Log("Player hit me.");
+                hitPoints -= playerScript.currentDamage;
+            }
+
         }
     }
 }

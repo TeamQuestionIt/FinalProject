@@ -30,8 +30,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.438505352, y: -1.4660176, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.79200006, y: -1.46599996, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,9 +60,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: .0202414989, y: .0190849304}
+  m_Offset: {x: .0146669149, y: -.0444645882}
   serializedVersion: 2
-  m_Size: {x: .182267323, y: .177220613}
+  m_Size: {x: .193416238, y: .277561784}
 --- !u!61 &6142184
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -73,9 +73,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .00153374672, y: -.101894021}
+  m_Offset: {x: .0121957064, y: -.230000019}
   serializedVersion: 2
-  m_Size: {x: .1793769, y: .0522934943}
+  m_Size: {x: .214800715, y: .0600000024}
 --- !u!95 &9541532
 Animator:
   serializedVersion: 3
@@ -130,14 +130,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d04a7bc810560468f6edfcde1629a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
+  hitBox: {fileID: 6110952}
   jumpForce: {x: 25, y: 250}
-  attackDx: 10
+  attackDx: 1.5
   dxMultiplier: 10
   maxJumpVelocity: {x: 5, y: 54.4300003}
   JumpWaitTimer: 2
   useVariableJumpDistance: 1
   useVariableJumpTimer: 0
+  useConstantAttackAnimation: 0
+  hitPoints: 50
+  scoreValue: 10
+  damage: 5
 --- !u!212 &21259320
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -162,7 +166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cd9143090423d45dbb80653982e6c3b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b99095ba775b589478a8866a16bd8dbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

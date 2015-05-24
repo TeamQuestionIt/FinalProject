@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 
@@ -7,12 +8,17 @@ public class Player : MonoBehaviour
     //this fixes compile bug in BodySwitcher.cs
     public GameObject attackPrefab;
     //velocity of repulsion force if player is hit.
-    public Vector2 hitRepelVelocity = new Vector2(10, 100);
-    public uint hitPoints = 100;
+    public Vector2 hitRepelVelocity = new Vector2(3, 5);
+    public Vector2 maxRepelVelocity = new Vector2(5, 10);
+    public int hitPoints = 100;
+    public int currentDamage = 0;
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
+    public Text scoreUI;
+    public int score = 0;
+    
 
     private Animator anim;
     private Rigidbody2D rBody;
@@ -20,6 +26,8 @@ public class Player : MonoBehaviour
     private bool isAttacking = false;
     private float timer = 0f;
     private bool canPowerMove = true;
+    private int[] damage;
+    private string scoreLabel = "Score: ";
     
 
     /// <summary>
@@ -31,6 +39,8 @@ public class Player : MonoBehaviour
         HEAVY,
         POWER
     }
+
+
 
     /// <summary>
     /// Used to set the bool isAttacking field by a string. 
@@ -53,7 +63,7 @@ public class Player : MonoBehaviour
             {
                 case ATTACK.LIGHT:
                     anim.SetTrigger("LightAttack");
-                    SetHitBox(ATTACK.LIGHT);
+                    SetHitBox(type);//move out of switch when all implemented
                     isAttacking = true;
                     break;
                 case ATTACK.HEAVY:
@@ -67,6 +77,7 @@ public class Player : MonoBehaviour
                     }
                     break;
             }
+            currentDamage = damage[(int)type];
         }
     }
 
@@ -74,6 +85,7 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody2D>();
+        damage = new int[] {10,25,100};
     }
 
     private void FixedUpdate()
@@ -91,6 +103,11 @@ public class Player : MonoBehaviour
             timer = PowerMoveWaitTime;
             canPowerMove = true;
         }
+    }
+
+    private void OnGUI()
+    {
+        scoreUI.text = scoreLabel + score.ToString("D5");
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -125,32 +142,46 @@ public class Player : MonoBehaviour
                 //stop all velocity first
                 rBody.velocity = Vector2.zero;
                 enemyRBody.velocity = Vector2.zero;
-                //playerRBody.AddForce(-playerRBody.velocity, ForceMode2D.Impulse);
-                // enemyRBody.AddForce(-enemyRBody.velocity, ForceMode2D.Impulse);
 
-                enemyRBody.velocity = new Vector2(hitRepelVelocity.x * -playerRepelDirection, hitRepelVelocity.y);
-                rBody.velocity = new Vector2(hitRepelVelocity.x * playerRepelDirection, hitRepelVelocity.y);
-                //enemyRBody.AddForce(new Vector2(hitRepelForce.x * -playerRepelDirection, hitRepelForce.y));
-                //playerRBody.AddForce(new Vector2(hitRepelForce.x * playerRepelDirection, hitRepelForce.y));
+                //repel them
+                //make sure velocity is not over max (bug fix)
+                enemyRBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * -playerRepelDirection, 0, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, 0, maxRepelVelocity.y));
+                rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, 0, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, 0, maxRepelVelocity.y));
+                
+                
 
 
                 //take off hitpoints if any
-                hitPoints -= (uint)col.gameObject.GetComponent<ImpAttack>().Damage;
-                Debug.Log("Hitpoints: " + hitPoints);
+                hitPoints -= col.gameObject.GetComponent<ImpAttack>().Damage;
+                //Debug.Log("Hitpoints: " + hitPoints);
 
             }
 
         }
     }
 
+    //this sets the hitbox to the appropriate size and offset, the animation will clear it when done.
     private void SetHitBox(ATTACK attackType)
     {
         currentHitBox.size = hitBoxes[(int)attackType].size;
         currentHitBox.offset = hitBoxes[(int)attackType].offset;
     }
 
+    //sets the hitbox size to zero making it inoperable
+    //usually called by animation
     public void ClearHitBox()
     {
         currentHitBox.size = Vector2.zero;
+    }
+
+    //returns if given collider is the hitbox used by other objects to see if they were hit by hitbox
+    public bool IsHitBox(Collider2D col)
+    {
+        BoxCollider2D box = col as BoxCollider2D;
+        if(null == box)
+        {
+            return false;
+        }
+        return box.size == currentHitBox.size && box.offset == currentHitBox.offset;
     }
 }
