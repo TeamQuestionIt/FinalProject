@@ -13,7 +13,6 @@ GameObject:
   - 95: {fileID: 9541532}
   - 114: {fileID: 11455854}
   - 61: {fileID: 6110952}
-  - 61: {fileID: 6142184}
   - 114: {fileID: 11427946}
   - 114: {fileID: 11410628}
   m_Layer: 0
@@ -30,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.79200006, y: -1.46599996, z: 0}
+  m_LocalPosition: {x: -1.29400003, y: -1.46599996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,24 +57,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 159726}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: .0146669149, y: -.0444645882}
-  serializedVersion: 2
-  m_Size: {x: .193416238, y: .277561784}
---- !u!61 &6142184
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159726}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .0121957064, y: -.230000019}
+  m_Offset: {x: .0146669149, y: -.0692449808}
   serializedVersion: 2
-  m_Size: {x: .214800715, y: .0600000024}
+  m_Size: {x: .193416238, y: .327122927}
 --- !u!95 &9541532
 Animator:
   serializedVersion: 3
@@ -130,18 +116,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d04a7bc810560468f6edfcde1629a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 6110952}
   jumpForce: {x: 25, y: 250}
   attackDx: 1.5
   dxMultiplier: 10
   maxJumpVelocity: {x: 5, y: 54.4300003}
   JumpWaitTimer: 2
-  useVariableJumpDistance: 1
-  useVariableJumpTimer: 0
-  useConstantAttackAnimation: 0
   hitPoints: 50
   scoreValue: 10
   damage: 5
+  useVariableJumpDistance: 1
+  useVariableJumpTimer: 0
+  useConstantAttackAnimation: 0
 --- !u!212 &21259320
 SpriteRenderer:
   m_ObjectHideFlags: 1

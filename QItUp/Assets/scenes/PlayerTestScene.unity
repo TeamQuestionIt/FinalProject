@@ -283,7 +283,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495706, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.79200006
+      value: -1.29400003
       objectReference: {fileID: 0}
     - target: {fileID: 495706, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -410,6 +410,7 @@ GameObject:
   - 68: {fileID: 498282656}
   - 68: {fileID: 498282660}
   - 251: {fileID: 498282659}
+  - 68: {fileID: 498282661}
   m_Layer: 0
   m_Name: Street1
   m_TagString: Untagged
@@ -498,6 +499,20 @@ EdgeCollider2D:
   - {x: -2.27130437, y: -.0122196674}
   - {x: -1.86424649, y: -.0122195482}
   - {x: -.7591784, y: -.0122196674}
+--- !u!68 &498282661
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498282655}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -3.20428777, y: 1.51360321}
+  - {x: -3.19963574, y: -1.97649908}
 --- !u!1001 &1056711150
 Prefab:
   m_ObjectHideFlags: 0

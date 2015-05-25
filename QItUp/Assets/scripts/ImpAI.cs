@@ -3,18 +3,17 @@ using System.Collections;
 
 public class ImpAI : MonoBehaviour
 {
-    public BoxCollider2D hitBox;
     public Vector2 jumpForce = new Vector2(10f, 250f);
     public float attackDx = 10f;//maximum distance from player to start attack
     public float dxMultiplier = 10f;//needed if using variable jumping
     public Vector2 maxJumpVelocity = new Vector2(10f, 10f);
     public float JumpWaitTimer = 2f;
-    public bool useVariableJumpDistance = true;
-    public bool useVariableJumpTimer = true;
-    public bool useConstantAttackAnimation = false;
     public int hitPoints = 20;
     public int scoreValue = 10;
     public uint damage = 5;
+    public bool useVariableJumpDistance = true;
+    public bool useVariableJumpTimer = true;
+    public bool useConstantAttackAnimation = false;
 
     //could randomize this a bit 1-5?
     private float timer = 0;
@@ -25,7 +24,6 @@ public class ImpAI : MonoBehaviour
     private float xDirection = 0;
     private bool onGround = false;
     private bool isFacingRight = false;
-    private float hWidthHitBox;
 
     // Use this for initialization
     void Start()
@@ -34,7 +32,6 @@ public class ImpAI : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         timer = JumpWaitTimer;
-        hWidthHitBox = hitBox.size.x / 2;
     }
 
     // Update is called once per frame
@@ -152,9 +149,10 @@ public class ImpAI : MonoBehaviour
         }
     }
 
+    //fired when hit box collides
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "Player")
+        if(col.name == "Player")
         {
             Player playerScript = col.gameObject.GetComponent<Player>();
             if (playerScript.IsHitBox(col))
@@ -162,7 +160,11 @@ public class ImpAI : MonoBehaviour
                 Debug.Log("Player hit me.");
                 hitPoints -= playerScript.currentDamage;
             }
-
         }
+    }
+
+    private void Repel()
+    {
+
     }
 }
