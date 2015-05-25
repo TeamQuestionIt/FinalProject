@@ -411,6 +411,7 @@ GameObject:
   - 68: {fileID: 498282660}
   - 251: {fileID: 498282659}
   - 68: {fileID: 498282661}
+  - 68: {fileID: 498282662}
   m_Layer: 0
   m_Name: Street1
   m_TagString: Untagged
@@ -431,7 +432,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: -1.77999997}
   m_Points:
   - {x: -3.20000005, y: 0}
-  - {x: 3.20000005, y: 0}
+  - {x: 4.75993299, y: .0136237144}
 --- !u!212 &498282657
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,6 +514,61 @@ EdgeCollider2D:
   m_Points:
   - {x: -3.20428777, y: 1.51360321}
   - {x: -3.19963574, y: -1.97649908}
+--- !u!68 &498282662
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498282655}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 3.19596076, y: 1.92844486}
+  - {x: 3.20000005, y: -1.88452411}
+--- !u!1 &606908804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 606908806}
+  - 114: {fileID: 606908805}
+  m_Layer: 0
+  m_Name: enemySpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &606908805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606908804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c73d05737f8b1c41991b87c2e07e921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 159726, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
+  maxTimeBetween: 10
+--- !u!4 &606908806
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 606908804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.42700005, y: -1.57299995, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1001 &1056711150
 Prefab:
   m_ObjectHideFlags: 0
