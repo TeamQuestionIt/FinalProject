@@ -557,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 159726, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
   maxTimeBetween: 10
+  useRandomTimer: 1
 --- !u!4 &606908806
 Transform:
   m_ObjectHideFlags: 0

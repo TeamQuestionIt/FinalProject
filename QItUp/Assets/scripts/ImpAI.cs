@@ -24,6 +24,7 @@ public class ImpAI : MonoBehaviour
     private float xDirection = 0;
     private bool onGround = false;
     private bool isFacingRight = false;
+    private float flashTime = .5f;
 
     // Use this for initialization
     void Start()
@@ -157,14 +158,38 @@ public class ImpAI : MonoBehaviour
             Player playerScript = col.gameObject.GetComponent<Player>();
             if (playerScript.IsHitBox(col))
             {
-                Debug.Log("Player hit me.");
+                //Debug.Log("Player hit me.");
                 hitPoints -= playerScript.currentDamage;
+                StartCoroutine("Flash");
             }
         }
     }
 
-    private void Repel()
+    private IEnumerator Flash()
     {
+        float timer = 0;
+        float step = .1f;
+        float currentStep = 0;
+        int direction = 1;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        while (timer < flashTime)
+        {
+            renderer.color = Color.Lerp(Color.red, Color.green, currentStep);
 
+            if (currentStep > 1)
+            {
+                direction = -1;
+            }
+            else if (currentStep < 0)
+            {
+                direction = 1;
+            }
+            currentStep = currentStep + (step * direction);
+            timer += Time.deltaTime;
+            // yield return new WaitForSeconds(.1f);
+            yield return null;
+        }
+        renderer.color = Color.white;
+        yield return null;
     }
 }

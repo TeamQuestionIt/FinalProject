@@ -169,7 +169,6 @@ public class Player : MonoBehaviour
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         while(timer < flashTime)
         {
-            Debug.Log("loop");
             renderer.color = Color.Lerp(Color.red, Color.green, currentStep);
            
             if(currentStep > 1)
@@ -188,56 +187,6 @@ public class Player : MonoBehaviour
         renderer.color = Color.white;
         yield return null;
     }
-
-    //private void OnTriggerEnter2D(Collider2D col)
-    //{
-    //    //check if enemy
-    //    if (col.tag == "enemy")
-    //    {
-    //        //Debug.Log("enemy collided with my trigger.");
-
-    //        //will need to make this more generic when more enemies added to family.
-    //        //should make base class
-    //        //check if hitbox
-    //        if (col.gameObject.GetComponent<ImpAttack>().IsHitBox(col))
-    //        {
-    //            //repel
-    //            //Debug.Log("Repel!");
-    //            Rigidbody2D enemyRBody = col.GetComponent<Rigidbody2D>();
-
-    //            //get repel direction
-    //            int playerRepelDirection = 0;
-    //            if (col.transform.position.x < transform.position.x)
-    //            {
-    //                playerRepelDirection = 1;
-    //            }
-    //            else
-    //            {
-    //                playerRepelDirection = -1;
-    //            }
-
-
-
-    //            //stop all velocity first
-    //            rBody.velocity = Vector2.zero;
-    //            enemyRBody.velocity = Vector2.zero;
-
-    //            //repel them
-    //            //make sure velocity is not over max (bug fix)
-    //            enemyRBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * -playerRepelDirection, 0, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, 0, maxRepelVelocity.y));
-    //            rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, 0, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, 0, maxRepelVelocity.y));
-
-
-
-
-    //            //take off hitpoints if any
-    //            hitPoints -= col.gameObject.GetComponent<ImpAttack>().Damage;
-    //            //Debug.Log("Hitpoints: " + hitPoints);
-
-    //        }
-
-    //    }
-    //}
 
     //this sets the hitbox to the appropriate size and offset, the animation will clear it when done.
     private void SetHitBox(ATTACK attackType)
