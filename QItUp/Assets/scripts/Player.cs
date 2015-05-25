@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
                     if (canPowerMove)
                     {
                         anim.SetTrigger("PowerAttack");
+                        SetHitBox(type);
                         isAttacking = true;
                         canPowerMove = false;
                     }
