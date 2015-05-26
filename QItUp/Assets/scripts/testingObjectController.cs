@@ -26,5 +26,14 @@ public class testingObjectController : MonoBehaviour {
         {
             transform.Translate(0.11f, 0, 0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            GameObject.Find("Room1").GetComponent<CameraMovementHelper>().MoveCameraHere();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GameObject.Find("Room2").GetComponent<CameraMovementHelper>().MoveCameraHere();
+        }
 	}
 }
