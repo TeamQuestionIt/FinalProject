@@ -39,6 +39,12 @@ public class CameraHandler : MonoBehaviour {
             newX = Lerp(cameraXMin, cameraXMax, LerpFindPlayerXT());
         }
 
+        if (!lockY)
+        {
+            //find where the camera needs to pan to
+            newY = Lerp(cameraYMin, cameraYMax, LerpFindPlayerYT());
+        }
+
         //clamp values if nessisary
         if (playerOOBClamp)
         {
@@ -46,9 +52,18 @@ public class CameraHandler : MonoBehaviour {
             {
                 newX = cameraXMax;
             } 
-            else if (newX < cameraYMin)
+            else if (newX < cameraXMin)
             {
                 newX = cameraXMin;
+            }
+
+            if (newY > cameraYMax)
+            {
+                newY = cameraYMax;
+            }
+            else if (newY < cameraYMin)
+            {
+                newY = cameraYMin;
             }
         }
 
@@ -70,7 +85,17 @@ public class CameraHandler : MonoBehaviour {
 
         if (panSpeedY != 0)
         {
-
+            if (panSpeedY < Math.Abs(newY - transform.position.y))
+            {
+                if (transform.position.y - newY <= 0)
+                {
+                    newY = transform.position.y + panSpeedY;
+                }
+                else
+                {
+                    newY = transform.position.y - panSpeedY;
+                }
+            }
         }
 
         transform.position = new Vector3(newX, newY, transform.position.z);
@@ -83,9 +108,11 @@ public class CameraHandler : MonoBehaviour {
         return currentNumber / cameraXMax;
     }
 
-    private void LerpFindPlayerYT()
+    private float LerpFindPlayerYT()
     {
+        float currentNumber = folowedItem.transform.position.y - cameraYMin;
 
+        return currentNumber / cameraYMax;
     }
 
     private float Lerp(float v0, float v1, float t)
