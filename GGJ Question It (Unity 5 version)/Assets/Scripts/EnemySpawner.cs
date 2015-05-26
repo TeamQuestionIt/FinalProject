@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour {
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0 && spawnCount < 3)
+        if (timer <= 0 && spawnCount < 0)
         {
             timer = delay;
 			spawnCount += 1;

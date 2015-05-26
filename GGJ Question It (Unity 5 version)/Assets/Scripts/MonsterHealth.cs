@@ -7,6 +7,8 @@ public class MonsterHealth : MonoBehaviour {
 	public GameObject monster;
 	public Transform monsterPos;
 	public Vector3 healthPos;
+	public float xOffset;
+	public float yOffset;
 
 	
 	// Use this for initialization
@@ -21,8 +23,8 @@ public class MonsterHealth : MonoBehaviour {
 		if (healthBar != null && monsterPos != null) 
 		{
 			healthPos = monsterPos.position;
-			healthPos.y += monsterPos.GetComponent<SpriteRenderer> ().bounds.size.y / 2f;
-			healthPos.x += monsterPos.GetComponent<SpriteRenderer> ().bounds.size.x / 12f;
+			healthPos.x += xOffset;
+			healthPos.y += yOffset;
 			transform.position = Camera.main.WorldToScreenPoint (healthPos);
 			healthBar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (monster.GetComponent<HealthTracker> ().maxHealth, 20f);
 		}
