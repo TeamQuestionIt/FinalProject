@@ -333,9 +333,9 @@ PlatformEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseOneWay: 1
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
+  m_OneWay: 1
+  m_SideFriction: 0
+  m_SideBounce: 0
   m_SideAngleVariance: 0
 --- !u!68 &498282660
 EdgeCollider2D:
