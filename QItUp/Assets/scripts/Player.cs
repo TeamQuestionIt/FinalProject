@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Vector2 hitRepelVelocity = new Vector2(3, 5);
     public Vector2 maxRepelVelocity = new Vector2(5, 10);
     public int hitPoints = 100;
+    public int maxHitPoints = 100;
     public int currentDamage = 0;
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
@@ -32,8 +33,6 @@ public class Player : MonoBehaviour
     private float timer = 0f;
     private bool canPowerMove = true;
     private int[] damage;
-    private string scoreLabel = "Score: ";
-    private string livesLabel = "Lives: ";
     private float flashTime = .5f;
     private int lives = 3;
 
@@ -95,7 +94,6 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody2D>();
         damage = new int[] { 10, 25, 100 };
-        healthBarUI.type = Image.Type.Filled;
     }
 
     private void FixedUpdate()
@@ -113,18 +111,6 @@ public class Player : MonoBehaviour
             timer = PowerMoveWaitTime;
             canPowerMove = true;
         }
-    }
-
-    private void OnGUI()
-    {
-        scoreUI.text = scoreLabel + score.ToString("D5");
-        livesUI.text = livesLabel + lives.ToString();
-        if (hitPoints > 0)
-        {
-            healthBarUI.fillAmount = hitPoints / 100f;
-        }
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D col)

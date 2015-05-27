@@ -5,13 +5,11 @@ using UnityEngine.UI;
 public class MonsterHealth : MonoBehaviour {
 
     public Image healthBar;
-    private float filled;
-    private float maxHP;
+  
     private ImpAI impAIScript;
     
 	
-	//public float xOffset;
-	//public float yOffset;
+	
 
 	
 	// Use this for initialization
