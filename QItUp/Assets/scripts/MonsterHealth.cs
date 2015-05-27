@@ -1,37 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class MonsterHealth : MonoBehaviour {
 
-	public GameObject healthBar;
-	public GameObject monster;
-	public Transform monsterPos;
+    public Image healthBar;
+    public float filled;
+    public float maxHP;
+    public ImpAI impAIScript;
+    
 	
-	public float xOffset;
-	public float yOffset;
+	//public float xOffset;
+	//public float yOffset;
 
 	
 	// Use this for initialization
 	void Start () 
 	{
-
-
+        impAIScript = GetComponent<ImpAI>();
+        maxHP = impAIScript.hitPoints;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (healthBar != null && monsterPos != null) 
-		{
-			//healthPos = monsterPos.position;
-			//healthPos.x += xOffset;
-			//healthPos.y += yOffset;
-			transform.position = Camera.main.WorldToScreenPoint (monsterPos.transform.position);
-			//healthBar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (monster.GetComponent<HealthTracker> ().maxHealth, 20f);
-		}
-
-		if (monsterPos == null)
-			Destroy (healthBar);
+		
 
 
+      
 	}
+
+    private void OnGUI()
+    {
+        if (healthBar != null )
+        {
+
+            // transform.position = Camera.main.WorldToScreenPoint(monsterPos.transform.position);
+            healthBar.fillAmount = impAIScript.hitPoints / maxHP;
+
+
+        }
+
+        if (transform.position == null)
+            Destroy(healthBar);
+    } 
 }
