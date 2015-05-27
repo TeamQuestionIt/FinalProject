@@ -9,7 +9,11 @@ public class ImpAI : MonoBehaviour
     public Vector2 maxJumpVelocity = new Vector2(10f, 10f);
     public float JumpWaitTimer = 2f;
     public int hitPoints = 20;
+<<<<<<< HEAD
     public int currentHitpoints = 20;
+=======
+    public int currentHitPoints = 20;
+>>>>>>> BrysonFixed
     public int scoreValue = 10;
     public uint damage = 5;
     public bool useVariableJumpDistance = true;
