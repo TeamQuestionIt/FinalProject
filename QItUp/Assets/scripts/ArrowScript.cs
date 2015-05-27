@@ -10,6 +10,8 @@ public class ArrowScript : MonoBehaviour {
         menu_Pause
     }
 
+    public GameObject MainMenuParent;
+    public GameObject ControlMenuParent;
 
     public CurrentMenu startingMenu = CurrentMenu.menu_Main;
     CurrentMenu currentMenu;
@@ -18,6 +20,7 @@ public class ArrowScript : MonoBehaviour {
 
     public float inputInterval = 0.5f;
     float waitingTime = 0;
+    float firetime = 0;
 
     //menu length trackers hardcoded for safty and time
     const int mainMenuItemCount = 4;
@@ -40,13 +43,14 @@ public class ArrowScript : MonoBehaviour {
             waitingTime -= Time.deltaTime;
 
             //if they let go of the button then we can take annother input
-            if (Input.GetAxis("Vertical") > -0.00001 && Input.GetAxis("Vertical") < 0.00001)//float eq for 0
+            if (Input.GetAxis("Vertical") > -0.00001 && Input.GetAxis("Vertical") < 0.00001)//float eq for 0 and if select button unpressed
             {
                 waitingTime = 0;
             }
         }
         else
         {
+
             if (Input.GetAxis("Vertical") > 0.0f)
             {
                 currentPosition--;
@@ -107,7 +111,24 @@ public class ArrowScript : MonoBehaviour {
                         Debug.Log("currentMenue has an Invalid Value");
                         break;
                 }
+
             }
+            
+        }
+
+        if (firetime > 0.0f)
+        {
+            firetime -= Time.deltaTime;
+            if (Input.GetButtonUp("Fire1")) {
+                firetime = 0;
+            }
+
+        } 
+        else if (Input.GetButton("Fire1"))
+        {
+            DoAction();
+            firetime = inputInterval;
+
         }
 
         if (changePos)
@@ -135,4 +156,71 @@ public class ArrowScript : MonoBehaviour {
             transform.position = positionObject.transform.position;
         }
 	}
+
+    void DoAction()
+    {
+        switch (currentMenu)
+        {
+            case CurrentMenu.menu_Main:
+                switch (currentPosition)
+                {
+                    case 0:
+                        //make player and score manager if needed
+                        //reset score manager if needed
+                        //Application.loadedLevel(/*first level*/"");
+                        break;
+                    case 1:
+                        //turn off main menu
+                        MainMenuParent.SetActive(false);
+                        //turn on control menu
+                        ControlMenuParent.SetActive(true);
+                        //set current menus to controls
+                        currentMenu = CurrentMenu.menu_Control;
+                        //reset currentPosition
+                        currentPosition = 0;
+                        //set changePos to true
+                        changePos = true;
+                        break;
+                    case 2:
+                        //go to hi-score screen
+                        //i don't know what that will need (hopefully not a scene change)
+                        break;
+                    case 3:
+                        Debug.Log("Quitting Application");
+                        Application.Quit();
+                        break;
+                    default:
+                        Debug.Log("Main Menu has invalid position");
+                        break;
+                }
+                break;
+            case CurrentMenu.menu_Control:
+                switch (currentPosition)
+                {
+                    case 0:
+                        //turn off control menu
+                        ControlMenuParent.SetActive(false);
+                        //turn on main menu
+                        MainMenuParent.SetActive(true);
+                        //set current menus to controls
+                        currentMenu = CurrentMenu.menu_Main;
+                        //reset currentPosition
+                        currentPosition = 1;
+                        //set changePos to true
+                        changePos = true;
+                        break;
+                    default:
+                        Debug.Log("Control menu has invalid position");
+                        break;
+                }
+                break;
+
+            case CurrentMenu.menu_Pause:
+                //stuff here
+                break;
+            default:
+                Debug.Log("currentMenue has an Invalid Value");
+                break;
+        }
+    }
 }
