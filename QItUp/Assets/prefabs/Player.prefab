@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11425302}
   - 114: {fileID: 11416434}
   - 61: {fileID: 6176132}
+  - 114: {fileID: 11445528}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,8 +113,12 @@ MonoBehaviour:
   PowerMoveWaitTime: 3
   hitBoxes:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentHitBox: {fileID: 6176132}
   scoreUI: {fileID: 0}
+  healthBarUI: {fileID: 0}
+  livesUI: {fileID: 0}
   score: 0
 --- !u!114 &11425302
 MonoBehaviour:
@@ -129,6 +134,18 @@ MonoBehaviour:
   jumpForce: {x: 0, y: 450}
   maxVelocity: 2
   isFacingRight: 1
+--- !u!114 &11445528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f9ec570c2e8ce42b17d089618c89c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalLives: 0
 --- !u!114 &11493666
 MonoBehaviour:
   m_ObjectHideFlags: 1
