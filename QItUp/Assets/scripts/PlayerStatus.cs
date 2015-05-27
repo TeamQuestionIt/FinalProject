@@ -26,6 +26,16 @@ public class PlayerStatus : MonoBehaviour {
         healthBar.fillAmount = (float)playerScript.hitPoints/ playerScript.maxHitPoints;
 
     }
+    
+    if (specialBar != null)
+    {
+        specialBar.fillAmount = (float)playerScript.PowerMoveTimeWaited /playerScript.PowerMoveWaitTime ;
+        if(playerScript.canPowerMove)
+        {
+            specialBar.fillAmount = 1;
+
+        }
+    }
 
     }
 

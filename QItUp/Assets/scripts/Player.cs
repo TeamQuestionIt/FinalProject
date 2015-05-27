@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public int currentDamage = 0;
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
+    public float PowerMoveTimeWaited = 3.0f;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
 
@@ -30,8 +31,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rBody;
 
     private bool isAttacking = false;
-    private float timer = 0f;
-    private bool canPowerMove = true;
+    public float timer = 0f;
+    public bool canPowerMove = true;
     private int[] damage;
     private float flashTime = .5f;
     private int lives = 3;
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        PowerMoveTimeWaited = PowerMoveWaitTime - timer;
         //can change this to timed coroutine if perf needed
         anim.SetFloat("Speed", Mathf.Abs(rBody.velocity.x));
 
