@@ -9,11 +9,7 @@ public class ImpAI : MonoBehaviour
     public Vector2 maxJumpVelocity = new Vector2(10f, 10f);
     public float JumpWaitTimer = 2f;
     public int hitPoints = 20;
-<<<<<<< HEAD
-    public int currentHitpoints = 20;
-=======
     public int currentHitPoints = 20;
->>>>>>> BrysonFixed
     public int scoreValue = 10;
     public uint damage = 5;
     public bool useVariableJumpDistance = true;
@@ -68,7 +64,7 @@ public class ImpAI : MonoBehaviour
         }
 
         //check for dead
-        if (currentHitpoints < 0)
+        if (currentHitPoints < 0)
         {
             Debug.Log("i'm dead jim.");
             playerInstance.GetComponent<Player>().score += scoreValue;
@@ -142,8 +138,7 @@ public class ImpAI : MonoBehaviour
 
     private void Flip()
     {
-        Vector3 scale = transform.localScale;
-        transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+         transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -164,7 +159,7 @@ public class ImpAI : MonoBehaviour
             if (playerScript.IsHitBox(col))
             {
                 //Debug.Log("Player hit me.");
-                currentHitpoints -= playerScript.currentDamage;
+                currentHitPoints -= playerScript.currentDamage;
                 StartCoroutine("Flash");
             }
         }

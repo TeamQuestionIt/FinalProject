@@ -4,32 +4,10 @@ using UnityEngine.UI;
 
 public class MonsterHealth : MonoBehaviour {
 
-<<<<<<< HEAD
-	public Image healthBar;
-	//public GameObject monster;
-	//public Transform monsterPos;
-    private ImpAI impAIScript;
-	
-	public float xOffset;
-	public float yOffset;
-
-	
-	// Use this for initialization
-    void Start()
-    {
-        impAIScript = GetComponent<ImpAI>();
-
-
-    }
-    void OnGUI()
-    {
-        healthBar.fillAmount = (float)impAIScript.currentHitpoints / (float)impAIScript.hitPoints;
-    }
-=======
     public Image healthBar;
-    public float filled;
-    public float maxHP;
-    public ImpAI impAIScript;
+    private float filled;
+    private float maxHP;
+    private ImpAI impAIScript;
     
 	
 	//public float xOffset;
@@ -40,7 +18,6 @@ public class MonsterHealth : MonoBehaviour {
 	void Start () 
 	{
         impAIScript = GetComponent<ImpAI>();
-        maxHP = impAIScript.hitPoints;
 	}
 	
 	// Update is called once per frame
@@ -57,13 +34,9 @@ public class MonsterHealth : MonoBehaviour {
         {
 
             // transform.position = Camera.main.WorldToScreenPoint(monsterPos.transform.position);
-            healthBar.fillAmount = impAIScript.hitPoints / maxHP;
+            healthBar.fillAmount = (float)impAIScript.currentHitPoints / impAIScript.hitPoints;
 
 
         }
-
-        if (transform.position == null)
-            Destroy(healthBar);
     } 
->>>>>>> BrysonFixed
 }
