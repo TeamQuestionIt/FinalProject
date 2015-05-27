@@ -495,10 +495,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: hitBoxes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.74699998
@@ -536,10 +532,6 @@ Prefab:
       value: 
       objectReference: {fileID: 1116549193}
     - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: scoreUI
-      value: 
-      objectReference: {fileID: 1756014733}
-    - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: hitBoxes.Array.data[1]
       value: 
       objectReference: {fileID: 1116549193}
@@ -548,6 +540,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1860066645}
     - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: scoreUI
+      value: 
+      objectReference: {fileID: 1756014733}
+    - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: healthBarUI
       value: 
       objectReference: {fileID: 1227579366}
@@ -555,6 +551,10 @@ Prefab:
       propertyPath: livesUI
       value: 
       objectReference: {fileID: 738587488}
+    - target: {fileID: 11445528, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: totalLives
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   m_IsPrefabParent: 0
@@ -626,6 +626,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: d987185b520bef248b7d34dd43a9ebf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1202521273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1202521274}
+  m_Layer: 0
+  m_Name: playerSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1202521274
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1202521273}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .266000003, y: -.601999998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &1227579364
 GameObject:
   m_ObjectHideFlags: 0
