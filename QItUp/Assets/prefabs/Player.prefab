@@ -17,6 +17,8 @@ GameObject:
   - 114: {fileID: 11416434}
   - 61: {fileID: 6176132}
   - 114: {fileID: 11445528}
+  - 114: {fileID: 11455524}
+  - 114: {fileID: 11488602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -109,17 +111,17 @@ MonoBehaviour:
   hitRepelVelocity: {x: 3, y: 5}
   maxRepelVelocity: {x: 5, y: 10}
   hitPoints: 100
+  maxHitPoints: 100
   currentDamage: 0
   PowerMoveWaitTime: 3
+  PowerMoveTimeWaited: 3
   hitBoxes:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   currentHitBox: {fileID: 6176132}
-  scoreUI: {fileID: 0}
-  healthBarUI: {fileID: 0}
-  livesUI: {fileID: 0}
-  score: 0
+  timer: 0
+  canPowerMove: 1
 --- !u!114 &11425302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +147,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f9ec570c2e8ce42b17d089618c89c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLives: 0
+  totalLives: 3
+--- !u!114 &11455524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18f2ad8ce9dab24fa7423134a133516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11488602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81ee72c2e54984ea7d228ab5ccb22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  specialBar: {fileID: 0}
 --- !u!114 &11493666
 MonoBehaviour:
   m_ObjectHideFlags: 1

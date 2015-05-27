@@ -4,7 +4,7 @@ using System.Collections;
 public class LifeManager : MonoBehaviour
 {
 
-    public int LivesLeft { get; private set; }
+    public int LivesLeft { get; set; }
     public int totalLives;
 
     // Use this for initialization
@@ -13,9 +13,8 @@ public class LifeManager : MonoBehaviour
         LivesLeft = totalLives - 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Die()
     {
-
+        Debug.Log("need to implement player die.");
     }
 }

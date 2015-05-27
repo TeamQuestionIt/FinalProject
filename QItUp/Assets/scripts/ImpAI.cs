@@ -4,14 +4,14 @@ using System.Collections;
 public class ImpAI : MonoBehaviour
 {
     public Vector2 jumpForce = new Vector2(10f, 250f);
-    public float attackDx = 10f;//maximum distance from player to start attack
-    public float dxMultiplier = 10f;//needed if using variable jumping
-    public Vector2 maxJumpVelocity = new Vector2(10f, 10f);
-    public float JumpWaitTimer = 2f;
-    public int hitPoints = 20;
-    public int currentHitPoints = 20;
-    public int scoreValue = 10;
-    public uint damage = 5;
+    public float attackDx = 0;//maximum distance from player to start attack
+    public float dxMultiplier = 0f;//needed if using variable jumping
+    public Vector2 maxJumpVelocity;
+    public float JumpWaitTimer = 0;
+    public int hitPoints = 0;
+    public int currentHitPoints = 0;
+    public int scoreValue = 0;
+    public int damage = 0;
     public bool useVariableJumpDistance = true;
     public bool useVariableJumpTimer = true;
     public bool useConstantAttackAnimation = false;
@@ -67,14 +67,8 @@ public class ImpAI : MonoBehaviour
         if (currentHitPoints < 0)
         {
             Debug.Log("i'm dead jim.");
-            playerInstance.GetComponent<Player>().score += scoreValue;
+            //playerInstance.GetComponent<Player>().score += scoreValue;
             Destroy(gameObject);
-        }
-
-        //debug
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Jump();
         }
 
     }
