@@ -64,7 +64,7 @@ public class ImpAI : MonoBehaviour
         }
 
         //check for dead
-        if (hitPoints < 0)
+        if (currentHitPoints < 0)
         {
             Debug.Log("i'm dead jim.");
             playerInstance.GetComponent<Player>().score += scoreValue;
@@ -138,8 +138,7 @@ public class ImpAI : MonoBehaviour
 
     private void Flip()
     {
-        Vector3 scale = transform.localScale;
-        transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+         transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -160,7 +159,7 @@ public class ImpAI : MonoBehaviour
             if (playerScript.IsHitBox(col))
             {
                 //Debug.Log("Player hit me.");
-                hitPoints -= playerScript.currentDamage;
+                currentHitPoints -= playerScript.currentDamage;
                 StartCoroutine("Flash");
             }
         }

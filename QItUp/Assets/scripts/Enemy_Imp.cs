@@ -114,7 +114,6 @@ public class Enemy_Imp : MonoBehaviour {
 
     private void Flip()
     {
-        Vector3 scale = transform.localScale;
         transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
     }
 

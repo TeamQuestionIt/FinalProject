@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 083fc109d2419f2499fa699ec7b4db75
-timeCreated: 1432746388
+guid: adafb64b6a484a045990e40773adff99
+timeCreated: 1432676843
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: health bar 2_0
-    21300002: health bar 2_1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
