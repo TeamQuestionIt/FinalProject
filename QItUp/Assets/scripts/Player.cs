@@ -17,26 +17,18 @@ public class Player : MonoBehaviour
     public float PowerMoveWaitTime = 3.0f;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
-
-    //ui
-    public Text scoreUI;
-    public Image healthBarUI;
-    public Text livesUI;
-    public int score = 0;
-
-
+    
     private Animator anim;
     private Rigidbody2D rBody;
+    private LifeManager lifeManagerScript;
+    private ScoreManager scoreManagerScript;
+    private Character_Controller charControllerScript;
 
     private bool isAttacking = false;
     private float timer = 0f;
     private bool canPowerMove = true;
     private int[] damage;
-    private string scoreLabel = "Score: ";
-    private string livesLabel = "Lives: ";
     private float flashTime = .5f;
-    private int lives = 3;
-
 
     /// <summary>
     /// Type of attacks.
@@ -95,7 +87,9 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody2D>();
         damage = new int[] { 10, 25, 100 };
-        healthBarUI.type = Image.Type.Filled;
+        lifeManagerScript = GetComponent<LifeManager>();
+        scoreManagerScript = GetComponent<ScoreManager>();
+        charControllerScript = GetComponent<Character_Controller>();
     }
 
     private void FixedUpdate()
@@ -115,27 +109,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        scoreUI.text = scoreLabel + score.ToString("D5");
-        livesUI.text = livesLabel + lives.ToString();
-        if (hitPoints > 0)
-        {
-            healthBarUI.fillAmount = hitPoints / 100f;
-        }
-
-
-    }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         //check if enemy
         if (col.gameObject.tag == "enemy")
         {
-
-            //Debug.Log("enemy collided with my trigger.");
-
-
             Rigidbody2D enemyRBody = col.gameObject.GetComponent<Rigidbody2D>();
 
             //get repel direction
@@ -150,37 +128,47 @@ public class Player : MonoBehaviour
             }
 
 
-
             //stop all velocity first
             rBody.velocity = Vector2.zero;
             enemyRBody.velocity = Vector2.zero;
 
             //repel them
             //make sure velocity is not over max (bug fix)
+
             enemyRBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * -playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
             rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
+            //enemyRBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * -playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), 0);
+            //rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), 0);
 
+            //check if hit from behind
+            bool HitFromBehind = false;
+            if(col.transform.position.x > transform.position.x && !charControllerScript.isFacingRight)
+            {
+                HitFromBehind = true;
+            }
+            else if(col.transform.position.x < transform.position.x && charControllerScript.isFacingRight)
+            {
+                HitFromBehind = true;
+            }
 
-
-
-            if (!isAttacking)
+            if (!isAttacking || HitFromBehind)
             {
                 //take off hitpoints if any
-                hitPoints -= col.gameObject.gameObject.GetComponent<ImpAttack>().Damage;
+                hitPoints -= col.gameObject.GetComponent<ImpAI>().damage;
                 if (hitPoints > 0)
                 {
                     StartCoroutine("Flash");
                 }
-                else if(lives > 1)
+                else if(lifeManagerScript.LivesLeft > 1)
                 {
                     //dead with lives left
-                    lives--;
+                    lifeManagerScript.LivesLeft--;
                     hitPoints = 100;
                 }
                 else
                 {
                     //game over
-                    Debug.Log("you die now.");
+                    lifeManagerScript.Die();
                 }
                 //Debug.Log("Hitpoints: " + hitPoints);
 

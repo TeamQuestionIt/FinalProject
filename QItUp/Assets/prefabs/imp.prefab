@@ -31,7 +31,6 @@ GameObject:
   - 95: {fileID: 9541532}
   - 114: {fileID: 11455854}
   - 61: {fileID: 6110952}
-  - 114: {fileID: 11427946}
   - 114: {fileID: 11410628}
   - 114: {fileID: 11471126}
   m_Layer: 0
@@ -147,18 +146,6 @@ MonoBehaviour:
   jumpForce: {x: 25, y: 250}
   maxVelocity: 5
   isFacingRight: 1
---- !u!114 &11427946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 261791d1eae094142ae4bac62745843e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitBox: {fileID: 6110952}
 --- !u!114 &11455854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,7 +167,7 @@ MonoBehaviour:
   scoreValue: 10
   damage: 5
   useVariableJumpDistance: 1
-  useVariableJumpTimer: 0
+  useVariableJumpTimer: 1
   useConstantAttackAnimation: 0
 --- !u!114 &11456582
 MonoBehaviour:
