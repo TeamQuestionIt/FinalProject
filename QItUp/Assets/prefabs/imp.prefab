@@ -33,7 +33,6 @@ GameObject:
   - 61: {fileID: 6110952}
   - 114: {fileID: 11410628}
   - 114: {fileID: 11471126}
-  - 114: {fileID: 11409980}
   m_Layer: 0
   m_Name: imp
   m_TagString: enemy
@@ -52,7 +51,7 @@ GameObject:
   - 222: {fileID: 22251136}
   - 114: {fileID: 11468916}
   m_Layer: 0
-  m_Name: CurrentHealth
+  m_Name: ImpCurrentHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,19 +132,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11409980
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f81ee72c2e54984ea7d228ab5ccb22f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  specialBar: {fileID: 0}
 --- !u!114 &11410628
 MonoBehaviour:
   m_ObjectHideFlags: 1

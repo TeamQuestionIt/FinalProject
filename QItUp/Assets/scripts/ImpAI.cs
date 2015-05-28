@@ -132,7 +132,8 @@ public class ImpAI : MonoBehaviour
 
     private void Flip()
     {
-         transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+         //transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+         transform.Rotate(Vector3.up, 180);
     }
 
     private void OnCollisionEnter2D(Collision2D col)

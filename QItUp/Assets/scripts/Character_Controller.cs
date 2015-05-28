@@ -29,9 +29,10 @@ public class Character_Controller : MonoBehaviour
     private void Flip()
     {
         isFacingRight = !isFacingRight;
-        Vector3 newScale = anim.transform.localScale;
-        newScale.x *= -1;
-        anim.transform.localScale = newScale;
+        //Vector3 newScale = anim.transform.localScale;
+        //newScale.x *= -1;
+        //anim.transform.localScale = newScale;
+        transform.Rotate(Vector3.up, 180);
     }
 
     public void Move(float direction)

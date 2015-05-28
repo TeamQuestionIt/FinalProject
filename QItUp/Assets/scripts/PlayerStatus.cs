@@ -4,12 +4,15 @@ using UnityEngine.UI;
 public class PlayerStatus : MonoBehaviour {
     public Image healthBar;
     public Image specialBar;
+    public Text livesText;
+
     private Player playerScript;
+    private LifeManager lifeManagerScript;
 	// Use this for initialization
 	void Start () 
     {
         playerScript = GetComponent<Player>();
-       
+        lifeManagerScript = GetComponent<LifeManager>();
 
 	}
 	
@@ -36,6 +39,8 @@ public class PlayerStatus : MonoBehaviour {
 
         }
     }
+
+    livesText.text = lifeManagerScript.LivesLeft.ToString();
 
     }
 
