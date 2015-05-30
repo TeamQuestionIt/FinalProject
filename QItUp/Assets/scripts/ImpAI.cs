@@ -23,6 +23,7 @@ public class ImpAI : MonoBehaviour
     private Player playerScript;
     private Rigidbody2D rBody;
     private Animator anim;
+    private Character_Controller characterContrillerScript;
     private float xDirection = 0;
     private bool onGround = false;
     private bool isFacingRight = false;
@@ -36,6 +37,7 @@ public class ImpAI : MonoBehaviour
         anim = GetComponent<Animator>();
         timer = JumpWaitTimer;
         playerScript = playerInstance.GetComponent<Player>();
+        characterContrillerScript = playerInstance.GetComponent<Character_Controller>();
     }
 
     // Update is called once per frame
@@ -143,7 +145,7 @@ public class ImpAI : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         //hacky should do this better, probably use a ground tag
-        if (col.gameObject.name == "Street1")
+        if (col.gameObject.name == characterContrillerScript.nameOfBackgroundObject)
         {
             onGround = true;
         }
@@ -154,11 +156,11 @@ public class ImpAI : MonoBehaviour
     {
         if(col.name == "Player")
         {
-            Player playerScript = col.gameObject.GetComponent<Player>();
             if (playerScript.IsHitBox(col))
             {
                 //Debug.Log("Player hit me.");
                 currentHitPoints -= playerScript.currentDamage;
+                Debug.Log("flash");
                 StartCoroutine("Flash");
             }
         }
