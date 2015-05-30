@@ -12,6 +12,7 @@ public class Character_Controller : MonoBehaviour
     public Vector2 jumpForce = new Vector2(0, 450);
     public float maxVelocity = 2;
     public bool isFacingRight = true;
+    public string nameOfBackgroundObject;
 
 
     private bool onGround = true;
@@ -66,7 +67,7 @@ public class Character_Controller : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         //collided with edge collider on the background ie ground
-        if (col.gameObject.name == "Street1")
+        if (col.gameObject.name == nameOfBackgroundObject)
         {
             onGround = true;
             //check if current animation state is falling
