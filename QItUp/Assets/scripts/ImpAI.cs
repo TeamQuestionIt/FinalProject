@@ -20,6 +20,7 @@ public class ImpAI : MonoBehaviour
     private float timer = 0;
 
     private GameObject playerInstance;
+    private Player playerScript;
     private Rigidbody2D rBody;
     private Animator anim;
     private float xDirection = 0;
@@ -34,6 +35,7 @@ public class ImpAI : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         timer = JumpWaitTimer;
+        playerScript = playerInstance.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -68,6 +70,8 @@ public class ImpAI : MonoBehaviour
         {
             Debug.Log("i'm dead jim.");
             //playerInstance.GetComponent<Player>().score += scoreValue;
+            //this will add HP to the player when an enemy is killed.
+            playerScript.hitPoints += scoreValue;
             Destroy(gameObject);
         }
 
