@@ -116,9 +116,9 @@ MonoBehaviour:
   PowerMoveWaitTime: 3
   PowerMoveTimeWaited: 3
   hitBoxes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6170228, guid: 61d49561914246044b487a8da5f47fae, type: 2}
+  - {fileID: 6170228, guid: 61d49561914246044b487a8da5f47fae, type: 2}
+  - {fileID: 6150846, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   currentHitBox: {fileID: 6176132}
   timer: 0
   canPowerMove: 1
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f81ee72c2e54984ea7d228ab5ccb22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  specialBar: {fileID: 0}
-  livesText: {fileID: 0}
+  healthBar: {fileID: 11472516, guid: 98c3e03fb0df1374e9eaf7b1315b76fa, type: 2}
+  specialBar: {fileID: 11441640, guid: 98c3e03fb0df1374e9eaf7b1315b76fa, type: 2}
+  livesText: {fileID: 11426666, guid: 98c3e03fb0df1374e9eaf7b1315b76fa, type: 2}
 --- !u!114 &11493666
 MonoBehaviour:
   m_ObjectHideFlags: 1
