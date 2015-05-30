@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300004, guid: 9ebadb54f52cfe34e9d5e704482d8ef9, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 04756f5f3c024594d87d6a1eceba2164, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -393,9 +393,9 @@ PlatformEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_OneWay: 1
-  m_SideFriction: 0
-  m_SideBounce: 0
+  m_UseOneWay: 1
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
   m_SideAngleVariance: 0
 --- !u!68 &498282660
 EdgeCollider2D:
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 9ebadb54f52cfe34e9d5e704482d8ef9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04756f5f3c024594d87d6a1eceba2164, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -650,18 +650,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 2113601996}
-    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: specialBar
-      value: 
-      objectReference: {fileID: 1733472069}
-    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: livesText
-      value: 
-      objectReference: {fileID: 938540099}
     - target: {fileID: 11416434, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: hitBoxes.Array.data[0]
       value: 
@@ -674,6 +662,18 @@ Prefab:
       propertyPath: hitBoxes.Array.data[2]
       value: 
       objectReference: {fileID: 1860066645}
+    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 2113601996}
+    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: specialBar
+      value: 
+      objectReference: {fileID: 1733472069}
+    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 938540099}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   m_IsPrefabParent: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300006, guid: 9ebadb54f52cfe34e9d5e704482d8ef9, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 04756f5f3c024594d87d6a1eceba2164, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300008, guid: 9ebadb54f52cfe34e9d5e704482d8ef9, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 04756f5f3c024594d87d6a1eceba2164, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300002, guid: 9ebadb54f52cfe34e9d5e704482d8ef9, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 04756f5f3c024594d87d6a1eceba2164, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

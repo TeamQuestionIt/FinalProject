@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 9ebadb54f52cfe34e9d5e704482d8ef9
-timeCreated: 1432746665
-licenseType: Pro
+guid: 04756f5f3c024594d87d6a1eceba2164
+timeCreated: 1432944108
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: healthfull_0
-    21300002: healthfull_1
-    21300004: healthfull_2
-    21300006: healthfull_3
-    21300008: healthfull_4
+    21300000: healthUI
+    21300002: currentHealth
+    21300004: live_icon
+    21300006: specialBar
+    21300008: X
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -54,7 +54,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: healthfull_0
+    - name: healthUI
       rect:
         serializedVersion: 2
         x: 0
@@ -62,9 +62,9 @@ TextureImporter:
         width: 31
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: healthfull_1
+    - name: currentHealth
       rect:
         serializedVersion: 2
         x: 36
@@ -72,9 +72,9 @@ TextureImporter:
         width: 144
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: healthfull_2
+    - name: live_icon
       rect:
         serializedVersion: 2
         x: 39
@@ -82,19 +82,9 @@ TextureImporter:
         width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: healthfull_3
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 15
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: healthfull_4
+    - name: specialBar
       rect:
         serializedVersion: 2
         x: 0
@@ -102,7 +92,17 @@ TextureImporter:
         width: 180
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: X
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
