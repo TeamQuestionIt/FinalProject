@@ -115,7 +115,7 @@ public class CameraHandler : MonoBehaviour {
         return currentNumber / cameraYMax;
     }
 
-    private float Lerp(float v0, float v1, float t)
+     private float Lerp(float v0, float v1, float t)
     {
         return (1 - t) * v0 + t * v1;
     }

@@ -96,11 +96,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.31299996
+      value: -1.86899996
       objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.02100003
+      value: -1.14900005
       objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -301,6 +301,7 @@ GameObject:
   - 92: {fileID: 919841107}
   - 124: {fileID: 919841106}
   - 81: {fileID: 919841105}
+  - 114: {fileID: 919841110}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -373,6 +374,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &919841110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919841104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a038e4cd07ccdc94785d9225bb31f641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  folowedItem: {fileID: 1188045001}
+  playerOOBClamp: 1
+  cameraXMin: .256999999
+  cameraXMax: 50
+  lockX: 0
+  cameraYMin: -.300000012
+  cameraYMax: 1
+  lockY: 0
+  panSpeedX: .109999999
+  panSpeedY: .109999999
 --- !u!1001 &1023279034
 Prefab:
   m_ObjectHideFlags: 0
@@ -415,6 +437,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1188045001 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 110334, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+  m_PrefabInternal: {fileID: 185802235}
 --- !u!1 &1261520488
 GameObject:
   m_ObjectHideFlags: 0
