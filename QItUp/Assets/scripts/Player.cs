@@ -94,6 +94,15 @@ public class Player : MonoBehaviour
         charControllerScript = GetComponent<Character_Controller>();
     }
 
+    //debug
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            lifeManagerScript.Die();
+        }
+    }
+
     private void FixedUpdate()
     {
         PowerMoveTimeWaited = PowerMoveWaitTime - timer;
@@ -167,13 +176,14 @@ public class Player : MonoBehaviour
                     //dead with lives left
                     lifeManagerScript.LivesLeft--;
                     hitPoints = 100;
+                    gameObject.SetActive(false);
+                    lifeManagerScript.Die();
                 }
                 else
                 {
                     //game over
-                    lifeManagerScript.Die();
+                    Debug.Log("implement game over");
                 }
-                //Debug.Log("Hitpoints: " + hitPoints);
 
             }
         }
