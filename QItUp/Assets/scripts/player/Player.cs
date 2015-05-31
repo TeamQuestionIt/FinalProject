@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     private LifeManager lifeManagerScript;
     private ScoreManager scoreManagerScript;
     private Character_Controller charControllerScript;
+    private Utils utilityScript;
+    
 
     private bool isAttacking = false;
     public float timer = 0f;
@@ -92,6 +94,7 @@ public class Player : MonoBehaviour
         lifeManagerScript = GetComponent<LifeManager>();
         scoreManagerScript = GetComponent<ScoreManager>();
         charControllerScript = GetComponent<Character_Controller>();
+        utilityScript = GetComponent<Utils>();
     }
 
     //debug
@@ -165,11 +168,26 @@ public class Player : MonoBehaviour
 
             if (!isAttacking || HitFromBehind)
             {
-                //take off hitpoints if any
-                hitPoints -= col.gameObject.GetComponent<ImpAI>().damage;
+                //get appropriate script from enemy type
+                ImpAI impAiScript = col.gameObject.GetComponent<ImpAI>();
+                EyeAI eyeAIScript = col.gameObject.GetComponent<EyeAI>();
+
+                //get the damage
+                int damage = 0;
+
+                if(null != impAiScript)
+                {
+                    damage = impAiScript.damage;
+                }
+                else if(null != eyeAIScript)
+                {
+                    damage = eyeAIScript.damage;
+                }
+
+                hitPoints -= damage;
                 if (hitPoints > 0)
                 {
-                    StartCoroutine("Flash");
+                    StartCoroutine(utilityScript.Flash(flashTime));
                 }
                 else if (lifeManagerScript.LivesLeft > 1)
                 {
@@ -187,36 +205,6 @@ public class Player : MonoBehaviour
 
             }
         }
-    }
-
-
-
-    private IEnumerator Flash()
-    {
-        float timer = 0;
-        float step = .1f;
-        float currentStep = 0;
-        int direction = 1;
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        while (timer < flashTime)
-        {
-            renderer.color = Color.Lerp(Color.red, Color.green, currentStep);
-
-            if (currentStep > 1)
-            {
-                direction = -1;
-            }
-            else if (currentStep < 0)
-            {
-                direction = 1;
-            }
-            currentStep = currentStep + (step * direction);
-            timer += Time.deltaTime;
-            // yield return new WaitForSeconds(.1f);
-            yield return null;
-        }
-        renderer.color = Color.white;
-        yield return null;
     }
 
     //this sets the hitbox to the appropriate size and offset, the animation will clear it when done.

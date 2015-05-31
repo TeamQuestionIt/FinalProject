@@ -31,8 +31,8 @@ GameObject:
   - 95: {fileID: 9541532}
   - 114: {fileID: 11455854}
   - 61: {fileID: 6110952}
-  - 114: {fileID: 11410628}
   - 114: {fileID: 11471126}
+  - 114: {fileID: 11415528}
   m_Layer: 0
   m_Name: imp
   m_TagString: enemy
@@ -132,7 +132,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11410628
+--- !u!114 &11415528
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -140,12 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 159726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9494fa1fc7bb74e43a5776336dd9816f, type: 3}
+  m_Script: {fileID: 11500000, guid: 39e8c5b3398195e409e8e78df4442cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: {x: 25, y: 250}
-  maxVelocity: 5
-  isFacingRight: 1
 --- !u!114 &11455854
 MonoBehaviour:
   m_ObjectHideFlags: 1
