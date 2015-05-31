@@ -4,19 +4,22 @@ using System.Collections;
 public class EyeAI : MonoBehaviour
 {
     public GameObject player;
-    public Vector2 moveSpeed;
+    public Vector2 maxMoveSpeed;
+    public Vector2 moveForce;
     public float attackMaxDistance;
     public int damage;
 
     public bool InAttackRange { get; private set; }
 
-    private Vector2 direction = new Vector2(-1, 0);
+    private Vector2 direction = new Vector2(-1f, 0f);
     private float flashTime = .5f;
+    private Rigidbody2D rBody;
     
 
     void Start()
     {
         CheckAttackRange();
+        rBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -24,10 +27,6 @@ public class EyeAI : MonoBehaviour
     {
         Move();
         CheckAttackRange();
-        if(InAttackRange)
-        {
-            Debug.Log("Attack");
-        }
     }
 
     private void CheckAttackRange()
@@ -40,7 +39,30 @@ public class EyeAI : MonoBehaviour
 
     private void Move()
     {
-        Vector3 translation = new Vector3(moveSpeed.x * direction.x, moveSpeed.y * direction.y, 0);
-        transform.Translate(translation);
+        Vector3 translation = new Vector3(maxMoveSpeed.x * direction.x, maxMoveSpeed.y * direction.y, 0);
+       // transform.Translate(translation);
+        rBody.velocity = new Vector2(maxMoveSpeed.x * direction.x, maxMoveSpeed.y * direction.y);
+    }
+
+    private void FlipDirection()
+    {
+        direction.x *= -1;
+        transform.Rotate(Vector3.up, 180);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.name == "walls")
+        {
+            FlipDirection();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name == "walls")
+        {
+            FlipDirection();
+        }
     }
 }
