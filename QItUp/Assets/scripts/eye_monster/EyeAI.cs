@@ -14,15 +14,24 @@ public class EyeAI : MonoBehaviour
     private Vector2 direction = new Vector2(-1f, 0f);
     private float flashTime = .5f;
     private Rigidbody2D rBody;
+    private Animator anim;
     
 
     void Start()
     {
         CheckAttackRange();
         rBody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        if(rBody.velocity.x != 0)
+        {
+            anim.SetFloat("xVelocity", Mathf.Abs(rBody.velocity.x));
+        }
+    }
+
     void FixedUpdate()
     {
         Move();
