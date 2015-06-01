@@ -20,6 +20,15 @@ public class Player : MonoBehaviour
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
 
+    public bool OnGround
+    {
+        get
+        {
+            return charControllerScript.onGround;
+        }
+    }
+
+
     private Animator anim;
     private Rigidbody2D rBody;
     private LifeManager lifeManagerScript;
@@ -168,42 +177,68 @@ public class Player : MonoBehaviour
 
             if (!isAttacking || HitFromBehind)
             {
-                //get appropriate script from enemy type
-                ImpAI impAiScript = col.gameObject.GetComponent<ImpAI>();
-                EyeAI eyeAIScript = col.gameObject.GetComponent<EyeAI>();
-
-                //get the damage
-                int damage = 0;
-
-                if(null != impAiScript)
-                {
-                    damage = impAiScript.damage;
-                }
-                else if(null != eyeAIScript)
-                {
-                    damage = eyeAIScript.damage;
-                }
-
-                hitPoints -= damage;
-                if (hitPoints > 0)
-                {
-                    StartCoroutine(utilityScript.Flash(flashTime));
-                }
-                else if (lifeManagerScript.LivesLeft > 1)
-                {
-                    //dead with lives left
-                    lifeManagerScript.LivesLeft--;
-                    hitPoints = 100;
-                    gameObject.SetActive(false);
-                    lifeManagerScript.Die();
-                }
-                else
-                {
-                    //game over
-                    Debug.Log("implement game over");
-                }
+                ApplyDamage(col.collider);
 
             }
+        }
+    }
+
+    private void ApplyDamage(Collider2D col)
+    {
+        //get appropriate script from enemy type
+        ImpAI impAiScript = col.GetComponent<ImpAI>();
+        EyeAI eyeAIScript = col.gameObject.GetComponentInParent<EyeAI>();
+
+        //get the damage
+        int damage = 0;
+
+        if (null != impAiScript)
+        {
+            damage = impAiScript.damage;
+        }
+        else if (null != eyeAIScript)
+        {
+            damage = eyeAIScript.damage;
+        }
+
+        hitPoints -= damage;
+        if (hitPoints > 0)
+        {
+            StartCoroutine(utilityScript.Flash(flashTime));
+        }
+        else if (lifeManagerScript.LivesLeft > 1)
+        {
+            //dead with lives left
+            lifeManagerScript.LivesLeft--;
+            hitPoints = 100;
+            gameObject.SetActive(false);
+            lifeManagerScript.Die();
+        }
+        else
+        {
+            //game over
+            Debug.Log("implement game over");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.name == "hitBox")
+        {
+            //get repel direction
+            int playerRepelDirection = 0;
+            if (col.gameObject.transform.position.x < transform.position.x)
+            {
+                playerRepelDirection = 1;
+            }
+            else
+            {
+                playerRepelDirection = -1;
+            }
+            rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
+
+
+            ApplyDamage(col);
         }
     }
 

@@ -8,25 +8,27 @@ public class EyeAI : MonoBehaviour
     public Vector2 moveForce;
     public float attackMaxDistance;
     public int damage;
-
+    
     public bool InAttackRange { get; private set; }
 
     private Vector2 direction = new Vector2(-1f, 0f);
     private float flashTime = .5f;
     private Rigidbody2D rBody;
     private Animator anim;
-    
+    private Player playerScript;
+
 
     void Start()
     {
         CheckAttackRange();
         rBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerScript = player.GetComponent<Player>();
     }
 
     private void Update()
     {
-        if(rBody.velocity.x != 0)
+        if (rBody.velocity.x != 0)
         {
             anim.SetFloat("xVelocity", Mathf.Abs(rBody.velocity.x));
         }
@@ -44,13 +46,30 @@ public class EyeAI : MonoBehaviour
         {
             InAttackRange = true;
         }
+        else
+        {
+            InAttackRange = false;
+        }
     }
 
     private void Move()
     {
-        Vector3 translation = new Vector3(maxMoveSpeed.x * direction.x, maxMoveSpeed.y * direction.y, 0);
-       // transform.Translate(translation);
-        rBody.velocity = new Vector2(maxMoveSpeed.x * direction.x, maxMoveSpeed.y * direction.y);
+        if (!InAttackRange)
+        {
+            rBody.velocity = new Vector2(maxMoveSpeed.x * direction.x, maxMoveSpeed.y * direction.y);
+        }
+        else
+        {
+            var heading = (player.transform.position - transform.position).normalized;
+            //equv: heading.x != direction.x FLOATS!!
+            if(playerScript.OnGround && Mathf.Abs(heading.x - direction.x) > .1)
+            {
+                FlipDirection();
+            }
+            rBody.velocity = new Vector2(maxMoveSpeed.x * heading.x, 0);
+
+        }
+
     }
 
     private void FlipDirection()
