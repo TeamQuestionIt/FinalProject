@@ -220,6 +220,8 @@ public class Player : MonoBehaviour
         {
             //game over
             Debug.Log("implement game over");
+            //check highscores
+            Application.LoadLevel("FINAL_mainMenu");
         }
     }
 

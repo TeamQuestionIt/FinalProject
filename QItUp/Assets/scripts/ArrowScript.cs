@@ -218,14 +218,14 @@ public class ArrowScript : MonoBehaviour {
                 break;
 
             case CurrentMenu.menu_Pause:
+                Time.timeScale = 1;
                 switch (currentPosition)
                 {
                     case 0:
-                        Time.timeScale = 1;
                         Object.Destroy(PauseMenuParent);
                         break;
                     case 1:
-                        //scene change main menu
+                        Application.LoadLevel("FINAL_mainMenu");
                         break;
                     default:
                         Debug.Log("pause menu has invalid position");
