@@ -19,6 +19,7 @@ GameObject:
   - 114: {fileID: 11445528}
   - 114: {fileID: 11455524}
   - 114: {fileID: 11488602}
+  - 114: {fileID: 11483772}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86899996, y: -1.14900005, z: 0}
+  m_LocalPosition: {x: .226999998, y: -1.14900005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -117,7 +118,7 @@ MonoBehaviour:
   PowerMoveTimeWaited: 3
   hitBoxes:
   - {fileID: 6170228, guid: 61d49561914246044b487a8da5f47fae, type: 2}
-  - {fileID: 6170228, guid: 61d49561914246044b487a8da5f47fae, type: 2}
+  - {fileID: 6175562, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   - {fileID: 6150846, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   currentHitBox: {fileID: 6176132}
   timer: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
   maxVelocity: 2
   isFacingRight: 1
   nameOfBackgroundObject: background
+  onGround: 1
 --- !u!114 &11445528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,6 +164,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b18f2ad8ce9dab24fa7423134a133516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11483772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e8c5b3398195e409e8e78df4442cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11488602

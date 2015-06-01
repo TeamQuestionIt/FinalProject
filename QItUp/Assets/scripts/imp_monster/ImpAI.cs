@@ -21,6 +21,7 @@ public class ImpAI : MonoBehaviour
 
     private GameObject playerInstance;
     private Player playerScript;
+    private ScoreManager scoreManagerScript;
     private Rigidbody2D rBody;
     private Animator anim;
     private Character_Controller characterContrillerScript;
@@ -40,6 +41,7 @@ public class ImpAI : MonoBehaviour
         playerScript = playerInstance.GetComponent<Player>();
         characterContrillerScript = playerInstance.GetComponent<Character_Controller>();
         utilityScript = GetComponent<Utils>();
+        scoreManagerScript = playerInstance.GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -72,10 +74,9 @@ public class ImpAI : MonoBehaviour
         //check for dead
         if (currentHitPoints < 0)
         {
-            Debug.Log("i'm dead jim.");
-            //playerInstance.GetComponent<Player>().score += scoreValue;
             //this will add HP to the player when an enemy is killed.
             playerScript.hitPoints += scoreValue;
+            scoreManagerScript.AddScore(scoreValue);
             Destroy(gameObject);
         }
 

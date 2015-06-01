@@ -76,22 +76,21 @@ public class Player : MonoBehaviour
             {
                 case ATTACK.LIGHT:
                     anim.SetTrigger("LightAttack");
-                    SetHitBox(type);//move out of switch when all implemented
-                    isAttacking = true;
                     break;
                 case ATTACK.HEAVY:
+                    anim.SetTrigger("HeavyAttack");
                     break;
                 case ATTACK.POWER:
                     if (canPowerMove)
                     {
                         anim.SetTrigger("PowerAttack");
-                        SetHitBox(type);
-                        isAttacking = true;
                         canPowerMove = false;
                     }
                     break;
             }
             currentDamage = damage[(int)type];
+            SetHitBox(type);
+            isAttacking = true;
         }
     }
 
