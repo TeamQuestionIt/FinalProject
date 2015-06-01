@@ -8,6 +8,8 @@ public class InputHandler : MonoBehaviour {
     private Player player;
     private float horizontalInput = 0f;
 
+    private GameObject pauseMenuInstance;
+
     public void Start()
     {
         controller = GetComponent<Character_Controller>();
