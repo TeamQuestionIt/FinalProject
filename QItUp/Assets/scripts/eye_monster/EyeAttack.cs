@@ -6,6 +6,7 @@ public class EyeAttack : MonoBehaviour
 
     public float strikeRange;
     public int hitPoints;
+    public int currentHitPoints;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     private EyeAI aIScript;
