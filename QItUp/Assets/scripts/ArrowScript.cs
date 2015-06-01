@@ -29,7 +29,7 @@ public class ArrowScript : MonoBehaviour {
     const int mainMenuItemCount = 4;
     const int controlMenuItemCount = 1;
     const int scoreMenuItemCount = 1;
-    const int pauseMenuItemCount = 0;//changeLater
+    const int pauseMenuItemCount = 2;//changeLater
 
     bool changePos = true;
 
@@ -218,7 +218,19 @@ public class ArrowScript : MonoBehaviour {
                 break;
 
             case CurrentMenu.menu_Pause:
-                //stuff here
+                switch (currentPosition)
+                {
+                    case 0:
+                        Time.timeScale = 1;
+                        Object.Destroy(PauseMenuParent);
+                        break;
+                    case 1:
+                        //scene change main menu
+                        break;
+                    default:
+                        Debug.Log("pause menu has invalid position");
+                        break;
+                }
                 break;
             case CurrentMenu.menu_Score:
                 switch (currentPosition)
