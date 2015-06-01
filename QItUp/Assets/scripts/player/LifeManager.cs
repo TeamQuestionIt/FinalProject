@@ -35,5 +35,6 @@ public class LifeManager : MonoBehaviour
     {
         transform.position = spawners[currentSpawner].transform.position;
         gameObject.SetActive(true);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

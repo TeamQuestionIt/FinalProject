@@ -34,6 +34,13 @@ public class InputHandler : MonoBehaviour {
         if(Input.GetButtonDown("Fire2"))
         {
             //attack.Attack(PlayerAttack.ATTACK.POWER);
+            player.Attack(Player.ATTACK.HEAVY);
+            return;
+        }
+
+        if (Input.GetButtonDown("Fire3"))
+        {
+            //attack.Attack(PlayerAttack.ATTACK.POWER);
             player.Attack(Player.ATTACK.POWER);
             return;
         }
