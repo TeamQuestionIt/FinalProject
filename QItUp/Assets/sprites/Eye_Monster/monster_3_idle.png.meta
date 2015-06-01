@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: e2f77af0fea0b6345a772c669e1e5865
+timeCreated: 1433095141
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: monster_3_idle_0
+    21300002: monster_3_idle_1
+    21300004: monster_3_idle_2
+    21300006: monster_3_idle_3
+    21300008: monster_3_idle_4
+    21300010: monster_3_idle_5
+    21300012: monster_3_idle_6
+    21300014: monster_3_idle_7
+    21300016: monster_3_idle_8
+    21300018: monster_3_idle_9
+    21300020: monster_3_idle_10
+    21300022: monster_3_idle_11
+    21300024: monster_3_idle_12
+    21300026: monster_3_idle_13
+    21300028: monster_3_idle_14
+    21300030: monster_3_idle_15
+    21300032: monster_3_idle_16
+    21300034: monster_3_idle_17
+    21300036: monster_3_idle_18
+    21300038: monster_3_idle_19
+    21300040: monster_3_idle_20
+    21300042: monster_3_idle_21
+    21300044: monster_3_idle_22
+    21300046: monster_3_idle_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: monster_3_idle_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 53
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 53
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 0
+        width: 53
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_4
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 0
+        width: 53
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_5
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_6
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 0
+        width: 53
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_7
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 0
+        width: 53
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_8
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 0
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_9
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 0
+        width: 53
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_10
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 0
+        width: 53
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 0
+        width: 53
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_12
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 0
+        width: 53
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_13
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 0
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_14
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 0
+        width: 53
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_15
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 0
+        width: 53
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_16
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 0
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_17
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 0
+        width: 53
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_18
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 0
+        width: 53
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_19
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 0
+        width: 53
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_20
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 0
+        width: 53
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_21
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 0
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_22
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 0
+        width: 53
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: monster_3_idle_23
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 0
+        width: 53
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
