@@ -37,6 +37,8 @@ Thumbs.db*
 # plus some of @terrehbyte's stuff
 
 # UnityVS
-*/Assets/UnityVS/
+#**/UnityVS/*
+**/UnityVS/*/*.VersionSpecific.*
 UnityVS.meta
+
 *.sln.DotSettings
