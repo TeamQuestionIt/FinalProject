@@ -187,7 +187,7 @@ public class ArrowScript : MonoBehaviour {
                     case 0:
                         //make player and score manager if needed
                         //reset score manager if needed
-                        //Application.loadedLevel(/*first level*/"");
+                        Application.LoadLevel("level_one");
                         break;
                     case 1:
                         SwitchMenu(CurrentMenu.menu_Control);

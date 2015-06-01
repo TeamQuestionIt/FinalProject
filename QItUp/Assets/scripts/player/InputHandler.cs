@@ -38,6 +38,11 @@ public class InputHandler : MonoBehaviour {
             return;
         }
 
+        if (Input.GetButtonDown("Pause"))
+        {
+            Application.LoadLevelAdditive("Final_pauseMenu");
+        }
+
         //using buttons like this (left and right assigned in the input manager) gives more precise controls
         horizontalInput = Input.GetAxis("Horizontal");
         controller.Move(horizontalInput);
