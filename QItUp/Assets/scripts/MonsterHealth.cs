@@ -6,6 +6,7 @@ public class MonsterHealth : MonoBehaviour
 {
 
     public Image healthBar;
+    public Image border;
 
     private ImpAI impAIScript;
     private EyeAttack eyeAttackScript;
@@ -48,5 +49,11 @@ public class MonsterHealth : MonoBehaviour
 
 
         }
+    }
+
+    public void DisableBars()
+    {
+        Destroy(healthBar);
+        Destroy(border);
     }
 }

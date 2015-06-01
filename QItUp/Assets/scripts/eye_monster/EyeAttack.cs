@@ -82,10 +82,16 @@ public class EyeAttack : MonoBehaviour
     private void ApplyDamage()
     {
         hitPoints -= aIScript.playerScript.currentDamage;
-        if(hitPoints < 0)
+        if (hitPoints < 0)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("die");
         }
+    }
+
+    //called when die animation complete
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 
 

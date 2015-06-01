@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
         //check if enemy
         if (col.gameObject.tag == "enemy")
         {
+
             Rigidbody2D enemyRBody = col.gameObject.GetComponent<Rigidbody2D>();
 
             //get repel direction
@@ -177,6 +178,7 @@ public class Player : MonoBehaviour
 
             if (!isAttacking || HitFromBehind)
             {
+
                 ApplyDamage(col.collider);
 
             }
@@ -223,7 +225,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.name == "hitBox")
+        //eye mopnster only one to hit with dynamic boxes (trigger) so assume it's eye monster and check if hitbox
+        if(!isAttacking && col.name == "hitBox")
         {
             //get repel direction
             int playerRepelDirection = 0;

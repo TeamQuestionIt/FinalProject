@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: c07888964cd70d8468eceeb462940a13
-timeCreated: 1433014009
+timeCreated: 1433123128
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: MONSTER 3 death FINISHED_0
+    21300002: MONSTER 3 death FINISHED_1
+    21300004: MONSTER 3 death FINISHED_2
+    21300006: MONSTER 3 death FINISHED_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +34,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: MONSTER 3 death FINISHED_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 51
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MONSTER 3 death FINISHED_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 50
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MONSTER 3 death FINISHED_2
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 68
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MONSTER 3 death FINISHED_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 84
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
