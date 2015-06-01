@@ -49,7 +49,7 @@ public class ArrowScript : MonoBehaviour {
             waitingTime -= Time.deltaTime;
 
             //if they let go of the button then we can take annother input
-            if (Input.GetAxis("Vertical") > -0.00001 && Input.GetAxis("Vertical") < 0.00001)//float eq for 0 and if select button unpressed
+            if (Input.GetAxisRaw("Vertical") > -0.00001 && Input.GetAxisRaw("Vertical") < 0.00001)//float eq for 0 and if select button unpressed
             {
                 waitingTime = 0;
             }
@@ -57,7 +57,7 @@ public class ArrowScript : MonoBehaviour {
         else
         {
 
-            if (Input.GetAxis("Vertical") > 0.0f)
+            if (Input.GetAxisRaw("Vertical") > 0.0f)
             {
                 currentPosition--;
 
@@ -73,7 +73,7 @@ public class ArrowScript : MonoBehaviour {
                     changePos = true;
                 }
             }
-            else if (Input.GetAxis("Vertical") < 0.0f) 
+            else if (Input.GetAxisRaw("Vertical") < 0.0f) 
             {
                 currentPosition++;
 
