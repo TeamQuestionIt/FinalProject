@@ -7,11 +7,14 @@ public class ArrowScript : MonoBehaviour {
     {
         menu_Main,
         menu_Control,
+        menu_Score,
         menu_Pause
     }
 
     public GameObject MainMenuParent;
     public GameObject ControlMenuParent;
+    public GameObject ScoreMenuParent;
+    public GameObject PauseMenuParent;
 
     public CurrentMenu startingMenu = CurrentMenu.menu_Main;
     CurrentMenu currentMenu;
@@ -25,14 +28,17 @@ public class ArrowScript : MonoBehaviour {
     //menu length trackers hardcoded for safty and time
     const int mainMenuItemCount = 4;
     const int controlMenuItemCount = 1;
+    const int scoreMenuItemCount = 1;
     const int pauseMenuItemCount = 0;//changeLater
 
     bool changePos = true;
 
 	// Use this for initialization
 	void Start () {
-        currentMenu = startingMenu;
+        SwitchMenu(startingMenu);
         currentPosition = startingPosition;
+
+        
 	}
 	
 	// Update is called once per frame
@@ -107,6 +113,17 @@ public class ArrowScript : MonoBehaviour {
                             changePos = true;
                         }
                         break;
+                    case CurrentMenu.menu_Score:
+                        if (currentPosition >= scoreMenuItemCount)
+                        {
+                            currentPosition = scoreMenuItemCount - 1;
+                        }
+                        else
+                        {
+                            waitingTime = inputInterval;
+                            changePos = true;
+                        }
+                        break;
                     default:
                         Debug.Log("currentMenue has an Invalid Value");
                         break;
@@ -146,6 +163,9 @@ public class ArrowScript : MonoBehaviour {
                 case CurrentMenu.menu_Pause:
                     positionName = "PausePos" + currentPosition;
                     break;
+                case CurrentMenu.menu_Score:
+                    positionName = "ScorePos" + currentPosition;
+                    break;
                 default:
                     Debug.Log("currentMenue has an Invalid Value");
                     break;
@@ -170,20 +190,10 @@ public class ArrowScript : MonoBehaviour {
                         //Application.loadedLevel(/*first level*/"");
                         break;
                     case 1:
-                        //turn off main menu
-                        MainMenuParent.SetActive(false);
-                        //turn on control menu
-                        ControlMenuParent.SetActive(true);
-                        //set current menus to controls
-                        currentMenu = CurrentMenu.menu_Control;
-                        //reset currentPosition
-                        currentPosition = 0;
-                        //set changePos to true
-                        changePos = true;
+                        SwitchMenu(CurrentMenu.menu_Control);
                         break;
                     case 2:
-                        //go to hi-score screen
-                        //i don't know what that will need (hopefully not a scene change)
+                        SwitchMenu(CurrentMenu.menu_Score);
                         break;
                     case 3:
                         Debug.Log("Quitting Application");
@@ -198,16 +208,8 @@ public class ArrowScript : MonoBehaviour {
                 switch (currentPosition)
                 {
                     case 0:
-                        //turn off control menu
-                        ControlMenuParent.SetActive(false);
-                        //turn on main menu
-                        MainMenuParent.SetActive(true);
-                        //set current menus to controls
-                        currentMenu = CurrentMenu.menu_Main;
-                        //reset currentPosition
+                        SwitchMenu(CurrentMenu.menu_Main);
                         currentPosition = 1;
-                        //set changePos to true
-                        changePos = true;
                         break;
                     default:
                         Debug.Log("Control menu has invalid position");
@@ -218,9 +220,69 @@ public class ArrowScript : MonoBehaviour {
             case CurrentMenu.menu_Pause:
                 //stuff here
                 break;
+            case CurrentMenu.menu_Score:
+                switch (currentPosition)
+                {
+                    case 0:
+                        SwitchMenu(CurrentMenu.menu_Main);
+                        currentPosition = 2;
+                        break;
+                    default:
+                        Debug.Log("Score menu has invalid position");
+                        break;
+                }
+                break;
             default:
                 Debug.Log("currentMenue has an Invalid Value");
                 break;
         }
+    }
+
+    public void SwitchMenu(CurrentMenu newMenu)
+    {
+        currentMenu = newMenu;
+
+        if (MainMenuParent != null)
+        {
+            MainMenuParent.SetActive(false);
+        }
+        if (ControlMenuParent != null)
+        {
+            ControlMenuParent.SetActive(false);
+        }
+        if (PauseMenuParent != null)
+        {
+            PauseMenuParent.SetActive(false);
+        }
+        if (ScoreMenuParent != null)
+        {
+            ScoreMenuParent.SetActive(false);
+        }
+
+        switch (newMenu)
+        {
+            case CurrentMenu.menu_Main:
+                MainMenuParent.SetActive(true);
+                break;
+
+            case CurrentMenu.menu_Control:
+                ControlMenuParent.SetActive(true);
+                break;
+
+            case CurrentMenu.menu_Pause:
+                PauseMenuParent.SetActive(true);
+                break;
+
+            case CurrentMenu.menu_Score:
+                ScoreMenuParent.SetActive(true);
+                break;
+
+            default:
+                Debug.Log("Invalid starting state!");
+                break;
+        }
+
+        currentPosition = 0;
+        changePos = true;
     }
 }
