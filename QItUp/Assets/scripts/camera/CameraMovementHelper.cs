@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraMovementHelper : MonoBehaviour {
 
-    GameObject camera;
+    GameObject gameCamera;
     bool callOnStart = false;
 
     public float cameraScrollLeft = 0;
@@ -19,7 +19,7 @@ public class CameraMovementHelper : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        camera = GameObject.Find("Main Camera");
+        gameCamera = Camera.main.gameObject;
         if (callOnStart)
         {
             MoveCameraHere();
@@ -29,9 +29,9 @@ public class CameraMovementHelper : MonoBehaviour {
     public void MoveCameraHere()
     {
         //move camera (long form 'cus i'm paranoid about reference semantics)
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        gameCamera.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 
-        CameraHandler currentHandeler = camera.GetComponent<CameraHandler>();
+        CameraHandler currentHandeler = gameCamera.GetComponent<CameraHandler>();
 
         currentHandeler.lockX = lockX;
 
