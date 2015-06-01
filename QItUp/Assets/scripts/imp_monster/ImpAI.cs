@@ -24,6 +24,7 @@ public class ImpAI : MonoBehaviour
     private Rigidbody2D rBody;
     private Animator anim;
     private Character_Controller characterContrillerScript;
+    private Utils utilityScript;
     private float xDirection = 0;
     private bool onGround = false;
     private bool isFacingRight = false;
@@ -38,6 +39,7 @@ public class ImpAI : MonoBehaviour
         timer = JumpWaitTimer;
         playerScript = playerInstance.GetComponent<Player>();
         characterContrillerScript = playerInstance.GetComponent<Character_Controller>();
+        utilityScript = GetComponent<Utils>();
     }
 
     // Update is called once per frame
@@ -161,36 +163,8 @@ public class ImpAI : MonoBehaviour
                 //Debug.Log("Player hit me.");
                 currentHitPoints -= playerScript.currentDamage;
                 Debug.Log("flash");
-                StartCoroutine("Flash");
+                StartCoroutine(utilityScript.Flash(flashTime));
             }
         }
-    }
-
-    private IEnumerator Flash()
-    {
-        float timer = 0;
-        float step = .1f;
-        float currentStep = 0;
-        int direction = 1;
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        while (timer < flashTime)
-        {
-            renderer.color = Color.Lerp(Color.red, Color.green, currentStep);
-
-            if (currentStep > 1)
-            {
-                direction = -1;
-            }
-            else if (currentStep < 0)
-            {
-                direction = 1;
-            }
-            currentStep = currentStep + (step * direction);
-            timer += Time.deltaTime;
-            // yield return new WaitForSeconds(.1f);
-            yield return null;
-        }
-        renderer.color = Color.white;
-        yield return null;
     }
 }

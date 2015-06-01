@@ -20,11 +20,22 @@ public class Player : MonoBehaviour
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
 
+    public bool OnGround
+    {
+        get
+        {
+            return charControllerScript.onGround;
+        }
+    }
+
+
     private Animator anim;
     private Rigidbody2D rBody;
     private LifeManager lifeManagerScript;
     private ScoreManager scoreManagerScript;
     private Character_Controller charControllerScript;
+    private Utils utilityScript;
+    
 
     private bool isAttacking = false;
     public float timer = 0f;
@@ -92,6 +103,7 @@ public class Player : MonoBehaviour
         lifeManagerScript = GetComponent<LifeManager>();
         scoreManagerScript = GetComponent<ScoreManager>();
         charControllerScript = GetComponent<Character_Controller>();
+        utilityScript = GetComponent<Utils>();
     }
 
     //debug
@@ -126,6 +138,7 @@ public class Player : MonoBehaviour
         //check if enemy
         if (col.gameObject.tag == "enemy")
         {
+
             Rigidbody2D enemyRBody = col.gameObject.GetComponent<Rigidbody2D>();
 
             //get repel direction
@@ -165,58 +178,71 @@ public class Player : MonoBehaviour
 
             if (!isAttacking || HitFromBehind)
             {
-                //take off hitpoints if any
-                hitPoints -= col.gameObject.GetComponent<ImpAI>().damage;
-                if (hitPoints > 0)
-                {
-                    StartCoroutine("Flash");
-                }
-                else if (lifeManagerScript.LivesLeft > 1)
-                {
-                    //dead with lives left
-                    lifeManagerScript.LivesLeft--;
-                    hitPoints = 100;
-                    gameObject.SetActive(false);
-                    lifeManagerScript.Die();
-                }
-                else
-                {
-                    //game over
-                    Debug.Log("implement game over");
-                }
+
+                ApplyDamage(col.collider);
 
             }
         }
     }
 
-
-
-    private IEnumerator Flash()
+    private void ApplyDamage(Collider2D col)
     {
-        float timer = 0;
-        float step = .1f;
-        float currentStep = 0;
-        int direction = 1;
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        while (timer < flashTime)
-        {
-            renderer.color = Color.Lerp(Color.red, Color.green, currentStep);
+        //get appropriate script from enemy type
+        ImpAI impAiScript = col.GetComponent<ImpAI>();
+        EyeAI eyeAIScript = col.gameObject.GetComponentInParent<EyeAI>();
 
-            if (currentStep > 1)
-            {
-                direction = -1;
-            }
-            else if (currentStep < 0)
-            {
-                direction = 1;
-            }
-            currentStep = currentStep + (step * direction);
-            timer += Time.deltaTime;
-            // yield return new WaitForSeconds(.1f);
-            yield return null;
+        //get the damage
+        int damage = 0;
+
+        if (null != impAiScript)
+        {
+            damage = impAiScript.damage;
         }
-        renderer.color = Color.white;
-        yield return null;
+        else if (null != eyeAIScript)
+        {
+            damage = eyeAIScript.damage;
+        }
+
+        hitPoints -= damage;
+        if (hitPoints > 0)
+        {
+            StartCoroutine(utilityScript.Flash(flashTime));
+        }
+        else if (lifeManagerScript.LivesLeft > 1)
+        {
+            //dead with lives left
+            lifeManagerScript.LivesLeft--;
+            hitPoints = 100;
+            gameObject.SetActive(false);
+            lifeManagerScript.Die();
+        }
+        else
+        {
+            //game over
+            Debug.Log("implement game over");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        //eye mopnster only one to hit with dynamic boxes (trigger) so assume it's eye monster and check if hitbox
+        if(!isAttacking && col.name == "hitBox")
+        {
+            //get repel direction
+            int playerRepelDirection = 0;
+            if (col.gameObject.transform.position.x < transform.position.x)
+            {
+                playerRepelDirection = 1;
+            }
+            else
+            {
+                playerRepelDirection = -1;
+            }
+            rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
+
+
+            ApplyDamage(col);
+        }
     }
 
     //this sets the hitbox to the appropriate size and offset, the animation will clear it when done.

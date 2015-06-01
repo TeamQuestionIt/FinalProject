@@ -15,7 +15,7 @@ public class Character_Controller : MonoBehaviour
     public string nameOfBackgroundObject;
 
 
-    private bool onGround = true;
+    public bool onGround = true;
     private Animator anim;
     private Rigidbody2D rBody;
 
