@@ -15,7 +15,7 @@ public class EyeAI : MonoBehaviour
     private float flashTime = .5f;
     private Rigidbody2D rBody;
     private Animator anim;
-    private Player playerScript;
+    public Player playerScript;
 
 
     void Start()

@@ -178,6 +178,7 @@ MonoBehaviour:
   moveForce: {x: 0, y: 0}
   attackMaxDistance: 1.5
   damage: 20
+  playerScript: {fileID: 0}
 --- !u!114 &11481144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikeRange: .5
+  hitPoints: 50
   hitBoxes:
   - {fileID: 6129202, guid: 171820d0d902dcd499cf0a9c4543ceba, type: 2}
   - {fileID: 6188486, guid: 171820d0d902dcd499cf0a9c4543ceba, type: 2}

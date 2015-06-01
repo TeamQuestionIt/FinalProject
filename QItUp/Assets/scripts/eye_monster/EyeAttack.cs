@@ -5,12 +5,14 @@ public class EyeAttack : MonoBehaviour
 {
 
     public float strikeRange;
+    public int hitPoints;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
-    
+
+
 
     public void SetHitbox(int hitboxIndex)
     {
@@ -30,9 +32,9 @@ public class EyeAttack : MonoBehaviour
         BoxCollider2D box = col as BoxCollider2D;
         if (null == box) return false;
 
-        foreach(BoxCollider2D hitBox in hitBoxes)
+        foreach (BoxCollider2D hitBox in hitBoxes)
         {
-            if(hitBox.offset == box.offset && hitBox.size == box.size)
+            if (hitBox.offset == box.offset && hitBox.size == box.size)
             {
                 return true;
             }
@@ -57,7 +59,15 @@ public class EyeAttack : MonoBehaviour
     {
         if (col.name == "Player")
         {
-            Attack();
+            if (aIScript.playerScript.IsHitBox(col))
+            {
+                ApplyDamage();
+            }
+            else
+            {
+                Attack();
+            }
+
         }
 
 
@@ -66,6 +76,15 @@ public class EyeAttack : MonoBehaviour
     private void Attack()
     {
         anim.SetTrigger("attack");
+    }
+
+    private void ApplyDamage()
+    {
+        hitPoints -= aIScript.playerScript.currentDamage;
+        if(hitPoints < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
