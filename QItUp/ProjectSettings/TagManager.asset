@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - GateSwitch
+  - trigger
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - player
   - platforms
   - enemies
-  - 
+  - attackTrigger
   - 
   - 
   - 

@@ -34,7 +34,7 @@ public class PlayerStatus : MonoBehaviour {
     
     if (specialBar != null)
     {
-        specialBar.fillAmount = (float)playerScript.PowerMoveTimeWaited /playerScript.PowerMoveWaitTime ;
+        specialBar.fillAmount = (float)playerScript.PowerMoveCurrentWaitTime /playerScript.PowerMoveWaitTime ;
         specialBar.color = Color.yellow;
         //must be yellow by default or it will be green
         if(playerScript.canPowerMove)
