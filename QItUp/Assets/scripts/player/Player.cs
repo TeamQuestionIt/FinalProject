@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -117,7 +118,6 @@ public class Player : MonoBehaviour
         utilityScript = GetComponent<Utils>();
         soundManagerScript = GetComponent<SoundManager>();
     }
-
     //debug
     private void Update()
     {
