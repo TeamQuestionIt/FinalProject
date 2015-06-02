@@ -45,7 +45,7 @@ public class PlayerStatus : MonoBehaviour {
     }
 
     livesText.text = LifeManager.LivesLeft.ToString();
-    score.text = playerScript.score.ToString();
+   
     }
 
 

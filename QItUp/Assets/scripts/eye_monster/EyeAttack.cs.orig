@@ -3,16 +3,21 @@ using System.Collections;
 
 public class EyeAttack : MonoBehaviour
 {
+    public GameObject player;
     public float strikeRange;
     public int hitPoints;
     public int currentHitPoints;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
-    public BoxCollider2D hittableBox;
+    public int scoreValue;
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
-    private ScoreManager scoreManagerScript;
+<<<<<<< HEAD
+    private SoundManager soundManagerScript;
+=======
+    
+>>>>>>> BrysonFixedBranch
 
 
 
@@ -49,25 +54,28 @@ public class EyeAttack : MonoBehaviour
     {
         aIScript = GetComponent<EyeAI>();
         anim = GetComponent<Animator>();
-        scoreManagerScript = aIScript.player.GetComponent<ScoreManager>();
+        soundManagerScript = player.GetComponent<SoundManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.name == "Player")
         {
-
-            if (col.IsTouching(hittableBox) && aIScript.playerScript.IsHitBox(col))
+            if (aIScript.playerScript.IsHitBox(col))
             {
                 ApplyDamage();
             }
             else
             {
                 Attack();
+                soundManagerScript.Play(SoundManager.Clip.Eye_Attack);
             }
 
         }
+
+
     }
+
     private void Attack()
     {
         anim.SetTrigger("attack");
@@ -75,12 +83,11 @@ public class EyeAttack : MonoBehaviour
 
     private void ApplyDamage()
     {
-        //bug fix #4
-        currentHitPoints -= aIScript.playerScript.currentDamage;
-        if (currentHitPoints < 0)
+        hitPoints -= aIScript.playerScript.currentDamage;
+        if (hitPoints < 0)
         {
+            aIScript.playerScript.score += scoreValue;
             anim.SetTrigger("die");
-            scoreManagerScript.AddScore(10);
         }
     }
 
