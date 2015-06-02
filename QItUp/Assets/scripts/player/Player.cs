@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public float PowerMoveTimeWaited = 3.0f;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
+    public SpriteRenderer gateSwitch;
 
     public bool OnGround
     {
@@ -103,6 +104,7 @@ public class Player : MonoBehaviour
         scoreManagerScript = GetComponent<ScoreManager>();
         charControllerScript = GetComponent<Character_Controller>();
         utilityScript = GetComponent<Utils>();
+        
     }
 
     //debug
@@ -182,6 +184,9 @@ public class Player : MonoBehaviour
 
             }
         }
+
+
+        
     }
 
     private void ApplyDamage(Collider2D col)
@@ -244,6 +249,15 @@ public class Player : MonoBehaviour
 
             ApplyDamage(col);
         }
+
+        if (col.name == "GateSwitch")
+        {
+            Debug.Log("aksjlkhj");
+            gateSwitch.enabled = true;
+            //
+
+        }
+
     }
 
     //this sets the hitbox to the appropriate size and offset, the animation will clear it when done.
