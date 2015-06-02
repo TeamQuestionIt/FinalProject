@@ -11,6 +11,7 @@ public class EyeAttack : MonoBehaviour
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
+    private ScoreManager scoreManagerScript;
 
 
 
@@ -47,6 +48,7 @@ public class EyeAttack : MonoBehaviour
     {
         aIScript = GetComponent<EyeAI>();
         anim = GetComponent<Animator>();
+        scoreManagerScript = aIScript.player.GetComponent<ScoreManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -78,6 +80,7 @@ public class EyeAttack : MonoBehaviour
         if (hitPoints < 0)
         {
             anim.SetTrigger("die");
+            scoreManagerScript.AddScore(10);
         }
     }
 
