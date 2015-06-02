@@ -492,7 +492,7 @@ Transform:
   m_LocalScale: {x: .445366323, y: 2.43031049, z: .917098999}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &919841104
 GameObject:
   m_ObjectHideFlags: 0
