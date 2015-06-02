@@ -9,9 +9,11 @@ public class EyeAttack : MonoBehaviour
     public int currentHitPoints;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
+    public int scoreValue;
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
+    
 
 
 
@@ -84,6 +86,7 @@ public class EyeAttack : MonoBehaviour
         hitPoints -= aIScript.playerScript.currentDamage;
         if (hitPoints < 0)
         {
+            aIScript.playerScript.score += scoreValue;
             anim.SetTrigger("die");
         }
     }
