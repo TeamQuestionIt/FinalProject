@@ -72,10 +72,14 @@ public class ScoreManager : MonoBehaviour {
         }
     }
 
+    public static void resetScore()
+    {
+        Score = 0;
+    }
 
 	// Use this for initialization
 	void Start () {
-        Score = 0;
+        
 	}
 
 }

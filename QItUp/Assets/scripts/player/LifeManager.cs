@@ -4,7 +4,7 @@ using System.Collections;
 public class LifeManager : MonoBehaviour
 {
 
-    public int LivesLeft { get; set; }
+    public static int LivesLeft { get; set; }
     public int totalLives;
     public GameObject[] spawners;
 
@@ -13,7 +13,7 @@ public class LifeManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        LivesLeft = totalLives - 1;
+        //LivesLeft = totalLives - 1;
         currentSpawner = 0;
     }
 
@@ -36,5 +36,10 @@ public class LifeManager : MonoBehaviour
         transform.position = spawners[currentSpawner].transform.position;
         gameObject.SetActive(true);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public static void ResetLives()
+    {
+        LivesLeft = 3 - 1;//cant use totalLives because it is an instance variable
     }
 }
