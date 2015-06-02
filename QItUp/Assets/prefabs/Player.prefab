@@ -290,6 +290,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bd8255bd8492e6a4c9dfe27d5c45d431, type: 3}
   - {fileID: 8300000, guid: e52d884d19328b24c9ddc75c180b0039, type: 3}
   - {fileID: 8300000, guid: f7ed64dd7503e8b4a84511a5803e7c21, type: 3}
+  - {fileID: 8300000, guid: 1e1662924fba13a4ea32d7618bfb6316, type: 3}
+  - {fileID: 8300000, guid: 1f2a3af1bf1bd41499ec8101d25e4823, type: 3}
+  - {fileID: 8300000, guid: ddbd65a70a66f224d9f472b25c7f01ba, type: 3}
+  - {fileID: 8300000, guid: e001a40af69d27b46b4f32ce2c680318, type: 3}
+  - {fileID: 8300000, guid: f1c54c0d4d96af9439fef3cb12a743d7, type: 3}
+  - {fileID: 8300000, guid: 4206675f61052d54bbf2eef433da3b56, type: 3}
+  - {fileID: 8300000, guid: 02060359d417f934383100e15b178e81, type: 3}
 --- !u!212 &21211936
 SpriteRenderer:
   m_ObjectHideFlags: 1
