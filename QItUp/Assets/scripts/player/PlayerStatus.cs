@@ -54,7 +54,7 @@ public class PlayerStatus : MonoBehaviour {
     { 
     if (healthBar!= null)
     {
-        healthBar.fillAmount = (float)playerScript.hitPoints/ playerScript.maxHitPoints;
+        healthBar.fillAmount = (float)Player.hitPoints/ playerScript.maxHitPoints;
 
     }
     
@@ -70,7 +70,7 @@ public class PlayerStatus : MonoBehaviour {
         }
     }
 
-    livesText.text = lifeManagerScript.LivesLeft.ToString();
+    livesText.text = LifeManager.LivesLeft.ToString();
 
     }
 
