@@ -10,7 +10,7 @@ public class MeleeMonster : MonoBehaviour {
     public Transform attackPoint;
     public LayerMask canHit;
     public float cooldown = 1f;
-
+    
     private float timer = 0f;
 
     private Vector2 move = new Vector2();
@@ -90,7 +90,10 @@ public class MeleeMonster : MonoBehaviour {
 
      public void KillSelf()
      {
+         //addscore function here
+
          Destroy(gameObject);
+         
      }
 
      public void SetTarget(GameObject target)
