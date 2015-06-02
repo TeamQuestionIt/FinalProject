@@ -16,7 +16,7 @@ public class TriggerSpawner : MonoBehaviour {
 	void Update () {
 	
 	}
-    private void OnTriggerEnter(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.name == "Player")
         {
