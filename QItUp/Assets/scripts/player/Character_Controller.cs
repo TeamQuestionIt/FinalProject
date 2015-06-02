@@ -18,12 +18,14 @@ public class Character_Controller : MonoBehaviour
     public bool onGround = true;
     private Animator anim;
     private Rigidbody2D rBody;
+    private SoundManager soundManagerScript;
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         rBody = GetComponent<Rigidbody2D>();
         isFacingRight = true;
+        soundManagerScript = GetComponent<SoundManager>();
     }
 
 
@@ -60,6 +62,7 @@ public class Character_Controller : MonoBehaviour
         {
             rBody.AddForce(jumpForce);
             anim.SetTrigger("Jumped");
+            soundManagerScript.Play(SoundManager.Clip.Jump);
             onGround = false;
         }
     }
@@ -74,6 +77,7 @@ public class Character_Controller : MonoBehaviour
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Falling"))
             {
                 anim.SetTrigger("Landed");
+                soundManagerScript.Play(SoundManager.Clip.Land);
             }
 
         }

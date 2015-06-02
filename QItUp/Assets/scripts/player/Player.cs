@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     private ScoreManager scoreManagerScript;
     private Character_Controller charControllerScript;
     private Utils utilityScript;
+    private SoundManager soundManagerScript;
     
 
     private bool isAttacking = false;
@@ -104,7 +105,7 @@ public class Player : MonoBehaviour
         scoreManagerScript = GetComponent<ScoreManager>();
         charControllerScript = GetComponent<Character_Controller>();
         utilityScript = GetComponent<Utils>();
-        
+        soundManagerScript = GetComponent<SoundManager>();
     }
 
     //debug
@@ -181,6 +182,7 @@ public class Player : MonoBehaviour
             {
 
                 ApplyDamage(col.collider);
+                soundManagerScript.Play(SoundManager.Clip.Ouch);
 
             }
         }
@@ -246,15 +248,13 @@ public class Player : MonoBehaviour
             }
             rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
 
-
+            soundManagerScript.Play(SoundManager.Clip.Ouch);
             ApplyDamage(col);
         }
 
         if (col.name == "GateSwitch")
         {
-            Debug.Log("aksjlkhj");
             gateSwitch.enabled = true;
-            //
 
         }
 
