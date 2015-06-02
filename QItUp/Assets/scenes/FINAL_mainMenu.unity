@@ -2049,13 +2049,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2049932218}
+  - 114: {fileID: 2049932220}
+  - 114: {fileID: 2049932219}
   m_Layer: 0
   m_Name: ScoreMenuItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2049932218
 Transform:
   m_ObjectHideFlags: 0
@@ -2079,3 +2081,28 @@ Transform:
   - {fileID: 875902140}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &2049932219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049932217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18f2ad8ce9dab24fa7423134a133516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2049932220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049932217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339f3682b28a0034f87a5d5be1209e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText0: {fileID: 1750406412}
+  ScoreText1: {fileID: 957958861}
+  ScoreText2: {fileID: 1359251084}
