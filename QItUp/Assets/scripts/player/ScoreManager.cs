@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour {
         return highScores;
     }
 
-    public void SaveHighScores()
+    public static void SaveHighScores()
     {
         //see if we need score added to list
         if (highScores.Count == 0)
@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour {
 
     }
 
-    private bool IsHighScore(int a_Score)
+    private static bool IsHighScore(int a_Score)
     {
         foreach(int highScore in highScores)
         {
