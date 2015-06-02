@@ -79,7 +79,7 @@ public class ImpAI : MonoBehaviour
         {
             //this will add HP to the player when an enemy is killed.
             Player.hitPoints += scoreValue;
-            scoreManagerScript.AddScore(scoreValue);
+            scoreManagerScript.AddScore(5);
             Destroy(gameObject);
         }
 

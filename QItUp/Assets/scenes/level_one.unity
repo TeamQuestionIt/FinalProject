@@ -735,14 +735,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1188045001}
-    - target: {fileID: 157100, guid: 1201600378ce0434ebd79eb38b732f4f, type: 2}
-      propertyPath: m_TagString
-      value: trigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 11481144, guid: 1201600378ce0434ebd79eb38b732f4f, type: 2}
-      propertyPath: scoreValue
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1201600378ce0434ebd79eb38b732f4f, type: 2}
   m_IsPrefabParent: 0
@@ -1013,6 +1005,10 @@ Prefab:
       propertyPath: livesText
       value: 
       objectReference: {fileID: 315431947}
+    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 1399848510}
     - target: {fileID: 11445528, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: spawners.Array.data[0]
       value: 
@@ -1029,18 +1025,6 @@ Prefab:
       propertyPath: gateSwitch
       value: 
       objectReference: {fileID: 1987391867}
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1e1662924fba13a4ea32d7618bfb6316, type: 3}
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f2a3af1bf1bd41499ec8101d25e4823, type: 3}
-    - target: {fileID: 11488602, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: score
-      value: 
-      objectReference: {fileID: 1399848510}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   m_IsPrefabParent: 0
@@ -1364,7 +1348,7 @@ GameObject:
   - 222: {fileID: 1377157984}
   - 114: {fileID: 1377157983}
   m_Layer: 0
-  m_Name: ScoreText
+  m_Name: ScoreLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1414,7 @@ GameObject:
   - 222: {fileID: 1399848511}
   - 114: {fileID: 1399848510}
   m_Layer: 0
-  m_Name: Value
+  m_Name: scoreValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.21000004, y: -1.14999998, z: 0}
+  m_LocalPosition: {x: -1.13, y: -1.03999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -182,18 +182,18 @@ MonoBehaviour:
   attackPrefab: {fileID: 0}
   hitRepelVelocity: {x: 3, y: 5}
   maxRepelVelocity: {x: 5, y: 10}
-  hitPoints: 300
   maxHitPoints: 300
   currentDamage: 0
   PowerMoveWaitTime: 3
-  PowerMoveTimeWaited: 3
+  PowerMoveCurrentWaitTime: 3
   hitBoxes:
   - {fileID: 6170228, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   - {fileID: 6175562, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   - {fileID: 6150846, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   currentHitBox: {fileID: 6176132}
   gateSwitch: {fileID: 0}
-  timer: 0
+  score: 0
+  damage: 0a0000001900000064000000
   canPowerMove: 1
 --- !u!114 &11425302
 MonoBehaviour:
@@ -263,6 +263,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   specialBar: {fileID: 0}
   livesText: {fileID: 0}
+  score: {fileID: 0}
 --- !u!114 &11493666
 MonoBehaviour:
   m_ObjectHideFlags: 1
