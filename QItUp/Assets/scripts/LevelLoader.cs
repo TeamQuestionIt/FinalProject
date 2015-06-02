@@ -17,7 +17,9 @@ public class LevelLoader : MonoBehaviour {
     {
         if (col.name == "Player")
         {
-            Application.LoadLevel("LevelTwo");
+            //no next level to load (shoulden't be hardcoded anyway)
+            // Application.LoadLevel("LevelTwo");
+            Application.LoadLevel("FINAL_mainMenu");
             Debug.Log("you ended the level");
         }
 
