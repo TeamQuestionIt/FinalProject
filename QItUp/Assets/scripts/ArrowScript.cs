@@ -186,7 +186,9 @@ public class ArrowScript : MonoBehaviour {
                 {
                     case 0:
                         //make player and score manager if needed
-                        //reset score manager if needed
+                        Player.ResetHealth();
+                        LifeManager.ResetLives();
+                        ScoreManager.resetScore();
                         Application.LoadLevel("level_one");
                         break;
                     case 1:

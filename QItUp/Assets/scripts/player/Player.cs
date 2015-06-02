@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     //velocity of repulsion force if player is hit.
     public Vector2 hitRepelVelocity = new Vector2(3, 5);
     public Vector2 maxRepelVelocity = new Vector2(5, 10);
-    public int hitPoints = 100;
+    public static int hitPoints = 100;
     public int maxHitPoints = 100;
     public int currentDamage = 0;
     //time between ability to power attack
@@ -219,10 +219,10 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(utilityScript.Flash(flashTime));
         }
-        else if (lifeManagerScript.LivesLeft > 1)
+        else if (LifeManager.LivesLeft > 1)
         {
             //dead with lives left
-            lifeManagerScript.LivesLeft--;
+            LifeManager.LivesLeft--;
             hitPoints = 100;
             gameObject.SetActive(false);
             lifeManagerScript.Die();
@@ -257,11 +257,7 @@ public class Player : MonoBehaviour
             ApplyDamage(col);
         }
 
-        if (col.name == "GateSwitch")
-        {
-            gateSwitch.enabled = true;
-
-        }
+        
 
     }
 
@@ -288,5 +284,10 @@ public class Player : MonoBehaviour
             return false;
         }
         return box.size == currentHitBox.size && box.offset == currentHitBox.offset;
+    }
+
+    public static void ResetHealth()
+    {
+        hitPoints = 300;//cant be maxHitpoints because maxhitpoints is an instance variable an this function is static
     }
 }

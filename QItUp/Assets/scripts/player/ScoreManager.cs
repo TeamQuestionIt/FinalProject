@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour {
         return highScores;
     }
 
-    private void SaveHighScores()
+    public void SaveHighScores()
     {
         //see if we need score added to list
         if (highScores.Count == 0)
@@ -64,7 +64,7 @@ public class ScoreManager : MonoBehaviour {
         return false;
     }
 
-    private void LoadHighscores()
+    public void LoadHighscores()
     {
         for(int i = 0; i < HIGH_SCORE_COUNT; i++)
         {
@@ -72,10 +72,14 @@ public class ScoreManager : MonoBehaviour {
         }
     }
 
+    public static void resetScore()
+    {
+        Score = 0;
+    }
 
 	// Use this for initialization
 	void Start () {
-        Score = 0;
+        
 	}
 
 }
