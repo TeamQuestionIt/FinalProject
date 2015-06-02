@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
         {
             return charControllerScript.onGround;
         }
+        set
+        {
+            charControllerScript.onGround = value;
+        }
     }
 
 
@@ -169,9 +173,8 @@ public class Player : MonoBehaviour
 
             enemyRBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * -playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
             rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
-            //enemyRBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * -playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), 0);
-            //rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), 0);
-
+           //setting onground to false prevents jumping. fixes bug #2
+            OnGround = false;
             //check if hit from behind
             bool HitFromBehind = false;
             if (col.transform.position.x > transform.position.x && !charControllerScript.isFacingRight)
