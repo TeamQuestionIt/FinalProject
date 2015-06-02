@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     public SpriteRenderer gateSwitch;
+    public int score = 0;
 
     public bool OnGround
     {
