@@ -8,6 +8,7 @@ public class EyeAttack : MonoBehaviour
     public int currentHitPoints;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
+    public BoxCollider2D hittableBox;
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
@@ -55,7 +56,8 @@ public class EyeAttack : MonoBehaviour
     {
         if (col.name == "Player")
         {
-            if (aIScript.playerScript.IsHitBox(col))
+
+            if (col.IsTouching(hittableBox) && aIScript.playerScript.IsHitBox(col))
             {
                 ApplyDamage();
             }
@@ -65,10 +67,7 @@ public class EyeAttack : MonoBehaviour
             }
 
         }
-
-
     }
-
     private void Attack()
     {
         anim.SetTrigger("attack");
@@ -76,8 +75,9 @@ public class EyeAttack : MonoBehaviour
 
     private void ApplyDamage()
     {
-        hitPoints -= aIScript.playerScript.currentDamage;
-        if (hitPoints < 0)
+        //bug fix #4
+        currentHitPoints -= aIScript.playerScript.currentDamage;
+        if (currentHitPoints < 0)
         {
             anim.SetTrigger("die");
             scoreManagerScript.AddScore(10);
