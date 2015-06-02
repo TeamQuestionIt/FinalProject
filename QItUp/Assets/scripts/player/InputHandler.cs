@@ -17,7 +17,7 @@ public class InputHandler : MonoBehaviour {
 
     public void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetAxis("Jump") > .1)
         {
             controller.Jump();
             return;
