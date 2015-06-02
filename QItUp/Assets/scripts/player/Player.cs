@@ -252,11 +252,7 @@ public class Player : MonoBehaviour
             ApplyDamage(col);
         }
 
-        if (col.name == "GateSwitch")
-        {
-            gateSwitch.enabled = true;
-
-        }
+        
 
     }
 
