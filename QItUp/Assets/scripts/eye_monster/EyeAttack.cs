@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EyeAttack : MonoBehaviour
 {
-
+    public GameObject player;
     public float strikeRange;
     public int hitPoints;
     public int currentHitPoints;
@@ -12,6 +12,7 @@ public class EyeAttack : MonoBehaviour
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
+    private SoundManager soundManagerScript;
 
 
 
@@ -48,12 +49,7 @@ public class EyeAttack : MonoBehaviour
     {
         aIScript = GetComponent<EyeAI>();
         anim = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
+        soundManagerScript = player.GetComponent<SoundManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -67,6 +63,7 @@ public class EyeAttack : MonoBehaviour
             else
             {
                 Attack();
+                soundManagerScript.Play(SoundManager.Clip.Eye_Attack);
             }
 
         }

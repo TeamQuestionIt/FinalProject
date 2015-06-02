@@ -25,6 +25,7 @@ public class ImpAI : MonoBehaviour
     private Rigidbody2D rBody;
     private Animator anim;
     private Character_Controller characterContrillerScript;
+    private SoundManager soundManagerScript;
     private Utils utilityScript;
     private float xDirection = 0;
     private bool onGround = false;
@@ -42,6 +43,7 @@ public class ImpAI : MonoBehaviour
         characterContrillerScript = playerInstance.GetComponent<Character_Controller>();
         utilityScript = GetComponent<Utils>();
         scoreManagerScript = playerInstance.GetComponent<ScoreManager>();
+        soundManagerScript = playerInstance.GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -68,6 +70,7 @@ public class ImpAI : MonoBehaviour
                 //check if within attack distance
 
                 Jump();
+                soundManagerScript.Play(SoundManager.Clip.Imp_Attack);
             }
         }
 
