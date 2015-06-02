@@ -78,20 +78,25 @@ public class Player : MonoBehaviour
             {
                 case ATTACK.LIGHT:
                     anim.SetTrigger("LightAttack");
+                    SetHitBox(type);
+                    soundManagerScript.Play(SoundManager.Clip.TV_Light_Attack_Hit);
                     break;
                 case ATTACK.HEAVY:
                     anim.SetTrigger("HeavyAttack");
+                    SetHitBox(type);
+                    soundManagerScript.Play(SoundManager.Clip.TV_Light_Attack_Hit);
                     break;
                 case ATTACK.POWER:
                     if (canPowerMove)
                     {
                         anim.SetTrigger("PowerAttack");
+                        soundManagerScript.Play(SoundManager.Clip.TV_Power_Attack);
+                        SetHitBox(type);
                         canPowerMove = false;
                     }
                     break;
             }
             currentDamage = damage[(int)type];
-            SetHitBox(type);
             isAttacking = true;
         }
     }
@@ -111,9 +116,9 @@ public class Player : MonoBehaviour
     //debug
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(!isAttacking && currentHitBox.size != Vector2.zero)
         {
-            lifeManagerScript.Die();
+            ClearHitBox();
         }
     }
 

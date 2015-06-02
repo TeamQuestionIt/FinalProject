@@ -612,10 +612,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 400778, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1.13
@@ -676,22 +672,6 @@ Prefab:
       propertyPath: gateSwitch
       value: 
       objectReference: {fileID: 1987391867}
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1e1662924fba13a4ea32d7618bfb6316, type: 3}
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1f2a3af1bf1bd41499ec8101d25e4823, type: 3}
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: ddbd65a70a66f224d9f472b25c7f01ba, type: 3}
-    - target: {fileID: 11494826, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
-      propertyPath: clips.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: e001a40af69d27b46b4f32ce2c680318, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   m_IsPrefabParent: 0

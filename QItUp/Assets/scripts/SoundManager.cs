@@ -15,7 +15,10 @@ public class SoundManager : MonoBehaviour
         LeftFoot,
         RightFoot,
         Imp_Attack,
-        Eye_Attack
+        Eye_Attack,
+        TV_Power_Attack,
+        TV_Light_Attack_Miss,
+        TV_Light_Attack_Hit
     }
 
     void Start()
