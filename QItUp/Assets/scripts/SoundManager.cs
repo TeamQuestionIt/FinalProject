@@ -13,7 +13,9 @@ public class SoundManager : MonoBehaviour
         Land,
         Ouch,
         LeftFoot,
-        RightFoot
+        RightFoot,
+        Imp_Attack,
+        Eye_Attack
     }
 
     void Start()

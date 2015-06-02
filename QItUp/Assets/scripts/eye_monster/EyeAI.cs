@@ -16,6 +16,7 @@ public class EyeAI : MonoBehaviour
     private Rigidbody2D rBody;
     private Animator anim;
     public Player playerScript;
+    
 
 
     void Start()
@@ -24,6 +25,7 @@ public class EyeAI : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerScript = player.GetComponent<Player>();
+        
     }
 
     private void Update()
