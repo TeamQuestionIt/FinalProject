@@ -82,6 +82,7 @@ public class EyeAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+       
         if (col.collider.name == "walls")
         {
             FlipDirection();
@@ -90,7 +91,8 @@ public class EyeAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "walls")
+        //added check for attack range to fix bug #3
+        if (!InAttackRange && col.name == "walls")
         {
             FlipDirection();
         }
