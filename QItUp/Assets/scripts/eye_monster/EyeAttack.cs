@@ -7,6 +7,7 @@ public class EyeAttack : MonoBehaviour
     public float strikeRange;
     public int hitPoints;
     public int currentHitPoints;
+    public GameObject playerInstance;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     public BoxCollider2D hittableBox;
@@ -14,6 +15,7 @@ public class EyeAttack : MonoBehaviour
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
+   private ScoreManager scoreManagerScript;
 
 
 
@@ -50,6 +52,7 @@ public class EyeAttack : MonoBehaviour
     {
         aIScript = GetComponent<EyeAI>();
         anim = GetComponent<Animator>();
+        scoreManagerScript = playerInstance.GetComponent<ScoreManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -80,6 +83,7 @@ public class EyeAttack : MonoBehaviour
         if (currentHitPoints <= 0)
         {
             KillHealthBar();
+            //BUGBUG//if(anim.GetCurrentAnimationClipState(0))
             anim.SetTrigger("die");
         }
     }
