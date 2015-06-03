@@ -114,7 +114,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 529305708}
   m_RootOrder: 0
---- !u!114 &246729401
+--- !u!114 &246729401 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11472516, guid: 98c3e03fb0df1374e9eaf7b1315b76fa,
     type: 2}
@@ -235,7 +235,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3dc81b768cc35d94e8ee96a286d70ac8, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &315431947
+--- !u!114 &315431947 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11426666, guid: 98c3e03fb0df1374e9eaf7b1315b76fa,
     type: 2}
@@ -323,7 +323,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98c3e03fb0df1374e9eaf7b1315b76fa, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &433198116
+--- !u!224 &433198116 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22450524, guid: 98c3e03fb0df1374e9eaf7b1315b76fa,
     type: 2}
@@ -590,7 +590,7 @@ MonoBehaviour:
   lockY: 0
   panSpeedX: .109999999
   panSpeedY: .109999999
---- !u!114 &945220818
+--- !u!114 &945220818 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11441640, guid: 98c3e03fb0df1374e9eaf7b1315b76fa,
     type: 2}
@@ -782,7 +782,7 @@ EdgeCollider2D:
   m_Points:
   - {x: -4.29531288, y: .788164079}
   - {x: -4.28961182, y: -2.38874292}
---- !u!1 &1188045001
+--- !u!1 &1188045001 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 110334, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   m_PrefabInternal: {fileID: 1054437764}
