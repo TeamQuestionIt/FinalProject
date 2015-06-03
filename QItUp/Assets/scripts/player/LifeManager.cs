@@ -7,7 +7,7 @@ public class LifeManager : MonoBehaviour
     public static int LivesLeft { get; set; }
     public int totalLives;
     public GameObject[] spawners;
-
+    
     private int currentSpawner;
 
     // Use this for initialization
@@ -36,6 +36,7 @@ public class LifeManager : MonoBehaviour
         transform.position = spawners[currentSpawner].transform.position;
         gameObject.SetActive(true);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        Player.hitPoints = GetComponent<Player>().maxHitPoints;
     }
 
     public static void ResetLives()
