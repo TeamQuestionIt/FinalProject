@@ -3,25 +3,28 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using System;
-using System.Linq;
 
 public class Player : MonoBehaviour
 {
+    //STATIC
+    public static int hitPoints = 300;
+
     //this fixes compile bug in BodySwitcher.cs
     public GameObject attackPrefab;
     //velocity of repulsion force if player is hit.
     public Vector2 hitRepelVelocity = new Vector2(3, 5);
     public Vector2 maxRepelVelocity = new Vector2(5, 10);
-    public static int hitPoints = 100;
-    public int maxHitPoints = 100;
-    public int currentDamage = 0;
+    
+    public int maxHitPoints;
+    public int currentDamage;
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
-    public float PowerMoveTimeWaited = 3.0f;
+    public float PowerMoveCurrentWaitTime = 3.0f;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     public SpriteRenderer gateSwitch;
     public int score = 0;
+    public int[] damage;
 
     public bool OnGround
     {
@@ -46,9 +49,9 @@ public class Player : MonoBehaviour
     
 
     private bool isAttacking = false;
-    public float timer = 0f;
+    private float timer = 0f;
     public bool canPowerMove = true;
-    private int[] damage;
+    //private int[] damage;
     private float flashTime = .5f;
 
     /// <summary>
@@ -111,12 +114,15 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody2D>();
-        damage = new int[] { 10, 25, 100 };
+        //damage = new int[] { 10, 25, 100 };
         lifeManagerScript = GetComponent<LifeManager>();
         scoreManagerScript = GetComponent<ScoreManager>();
         charControllerScript = GetComponent<Character_Controller>();
         utilityScript = GetComponent<Utils>();
         soundManagerScript = GetComponent<SoundManager>();
+
+        //debug
+        LifeManager.ResetLives();
     }
     //debug
     private void Update()
@@ -129,7 +135,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PowerMoveTimeWaited = PowerMoveWaitTime - timer;
+        PowerMoveCurrentWaitTime = PowerMoveWaitTime - timer;
         //can change this to timed coroutine if perf needed
         anim.SetFloat("Speed", Mathf.Abs(rBody.velocity.x));
 
