@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EyeAttack : MonoBehaviour
 {
     public float strikeRange;
     public int hitPoints;
     public int currentHitPoints;
+    public GameObject playerInstance;
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     public BoxCollider2D hittableBox;
+    public Canvas healthBarCanvas;
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
-    private ScoreManager scoreManagerScript;
+   private ScoreManager scoreManagerScript;
 
 
 
@@ -49,14 +52,14 @@ public class EyeAttack : MonoBehaviour
     {
         aIScript = GetComponent<EyeAI>();
         anim = GetComponent<Animator>();
-        scoreManagerScript = aIScript.player.GetComponent<ScoreManager>();
+        scoreManagerScript = playerInstance.GetComponent<ScoreManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.name == "Player")
         {
-
+            //bug fix #4
             if (col.IsTouching(hittableBox) && aIScript.playerScript.IsHitBox(col))
             {
                 ApplyDamage();
@@ -77,16 +80,29 @@ public class EyeAttack : MonoBehaviour
     {
         //bug fix #4
         currentHitPoints -= aIScript.playerScript.currentDamage;
-        if (currentHitPoints < 0)
+        if (currentHitPoints <= 0)
         {
+            KillHealthBar();
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("eye_attack"))
+            {
+                anim.StopPlayback();
+            }
             anim.SetTrigger("die");
-            scoreManagerScript.AddScore(10);
+        }
+    }
+
+    private void KillHealthBar()
+    {
+        foreach(var obj in healthBarCanvas.GetComponentsInChildren<Image>())
+        {
+            Destroy(obj);
         }
     }
 
     //called when die animation complete
     public void Kill()
     {
+        scoreManagerScript.AddScore(10);
         Destroy(gameObject);
     }
 
