@@ -95,6 +95,7 @@ public class EyeAttack : MonoBehaviour
     //called when die animation complete
     public void Kill()
     {
+        scoreManagerScript.AddScore(10);
         Destroy(gameObject);
     }
 
