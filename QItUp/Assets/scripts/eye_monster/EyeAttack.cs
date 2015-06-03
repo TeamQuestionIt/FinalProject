@@ -83,7 +83,10 @@ public class EyeAttack : MonoBehaviour
         if (currentHitPoints <= 0)
         {
             KillHealthBar();
-            //BUGBUG//if(anim.GetCurrentAnimationClipState(0))
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName("eye_attack"))
+            {
+                anim.StopPlayback();
+            }
             anim.SetTrigger("die");
         }
     }
