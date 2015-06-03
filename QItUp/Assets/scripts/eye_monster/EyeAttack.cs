@@ -80,13 +80,14 @@ public class EyeAttack : MonoBehaviour
         if (hitPoints < 0)
         {
             anim.SetTrigger("die");
-            scoreManagerScript.AddScore(10);
+
         }
     }
 
     //called when die animation complete
     public void Kill()
     {
+        scoreManagerScript.AddScore(10);
         Destroy(gameObject);
     }
 
