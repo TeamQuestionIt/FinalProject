@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public int score = 0;
     public int[] damage;
 
+    public bool CanWalk { get; set; }
+
     public bool OnGround
     {
         get
@@ -110,18 +112,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody2D>();
-        //damage = new int[] { 10, 25, 100 };
         lifeManagerScript = GetComponent<LifeManager>();
         scoreManagerScript = GetComponent<ScoreManager>();
         charControllerScript = GetComponent<Character_Controller>();
         utilityScript = GetComponent<Utils>();
         soundManagerScript = GetComponent<SoundManager>();
 
-        //debug
+        CanWalk = true;
+
+        //debug REMOVE FOR RELEASE
         LifeManager.ResetLives();
     }
     //debug
@@ -240,7 +243,7 @@ public class Player : MonoBehaviour
         else
         {
             //game over
-            Debug.Log("implement game over");
+            //Debug.Log("implement game over");
             //check highscores
             ScoreManager.SaveHighScores();
             Application.LoadLevel("FINAL_mainMenu");
@@ -262,6 +265,8 @@ public class Player : MonoBehaviour
             {
                 playerRepelDirection = -1;
             }
+            //fix for bug #5
+            OnGround = false;
             rBody.velocity = new Vector2(Mathf.Clamp(hitRepelVelocity.x * playerRepelDirection, -maxRepelVelocity.x, maxRepelVelocity.x), Mathf.Clamp(hitRepelVelocity.y, -maxRepelVelocity.y, maxRepelVelocity.y));
 
             soundManagerScript.Play(SoundManager.Clip.Ouch);
