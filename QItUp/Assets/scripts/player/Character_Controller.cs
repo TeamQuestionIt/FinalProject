@@ -19,6 +19,7 @@ public class Character_Controller : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rBody;
     private SoundManager soundManagerScript;
+    private Player playerScript;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class Character_Controller : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         isFacingRight = true;
         soundManagerScript = GetComponent<SoundManager>();
+        playerScript = GetComponent<Player>();
     }
 
 
@@ -45,9 +47,11 @@ public class Character_Controller : MonoBehaviour
         {
             return;
         }
-        rBody.velocity = new Vector2(direction * maxVelocity, rBody.velocity.y);
-        //update animator, this line controls
-        //anim.SetFloat("Speed", Mathf.Abs(direction * maxVelocity));
+
+        if (onGround)
+        {
+            rBody.velocity = new Vector2(direction * maxVelocity, rBody.velocity.y); 
+        }
 
 
         if (direction > 0 && !isFacingRight)
