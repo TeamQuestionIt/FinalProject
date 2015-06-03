@@ -7,7 +7,8 @@ using System;
 public class TriggerSpawner : MonoBehaviour {
 
 	// Use this for initialization
-    public GameObject monster;
+    public GameObject monster0;
+    public GameObject monster1;
 	void Start () {
 	
 	}
@@ -22,5 +23,16 @@ public class TriggerSpawner : MonoBehaviour {
         {
                 enabled = true;
         }
+        if (col.name == "Player" && monster0 != null)
+        {
+            monster0.SetActive(true);
+        }
+        if (col.name == "Player" && monster1 != null)
+        {
+            monster1.SetActive(true);
+        }
+
+
+
     }
 }
