@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody2D>();

@@ -346,6 +346,7 @@ MonoBehaviour:
   - {fileID: 6133330, guid: 171820d0d902dcd499cf0a9c4543ceba, type: 2}
   currentHitBox: {fileID: 6181370}
   hittableBox: {fileID: 6197190}
+  healthBarCanvas: {fileID: 22367402}
 --- !u!212 &21296148
 SpriteRenderer:
   m_ObjectHideFlags: 1

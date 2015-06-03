@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EyeAttack : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class EyeAttack : MonoBehaviour
     public BoxCollider2D[] hitBoxes;
     public BoxCollider2D currentHitBox;
     public BoxCollider2D hittableBox;
+    public Canvas healthBarCanvas;
     private EyeAI aIScript;
     private bool isAttacking = false;
     private Animator anim;
-    private ScoreManager scoreManagerScript;
 
 
 
@@ -49,14 +50,13 @@ public class EyeAttack : MonoBehaviour
     {
         aIScript = GetComponent<EyeAI>();
         anim = GetComponent<Animator>();
-        scoreManagerScript = aIScript.player.GetComponent<ScoreManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.name == "Player")
         {
-
+            //bug fix #4
             if (col.IsTouching(hittableBox) && aIScript.playerScript.IsHitBox(col))
             {
                 ApplyDamage();
@@ -77,10 +77,18 @@ public class EyeAttack : MonoBehaviour
     {
         //bug fix #4
         currentHitPoints -= aIScript.playerScript.currentDamage;
-        if (currentHitPoints < 0)
+        if (currentHitPoints <= 0)
         {
+            KillHealthBar();
             anim.SetTrigger("die");
-            scoreManagerScript.AddScore(10);
+        }
+    }
+
+    private void KillHealthBar()
+    {
+        foreach(var obj in healthBarCanvas.GetComponentsInChildren<Image>())
+        {
+            Destroy(obj);
         }
     }
 
