@@ -18,7 +18,7 @@ public class LevelLoader : MonoBehaviour {
         if (col.name == "Player")
         {
             //only call on end of game
-            ScoreManager.SaveHighScores();
+            //ScoreManager.SaveHighScores();
             //no next level to load (shoulden't be hardcoded anyway)
             // Application.LoadLevel("LevelTwo");
             Application.LoadLevel("FINAL_mainMenu");
