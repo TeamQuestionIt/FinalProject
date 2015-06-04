@@ -2,17 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ScoreMenuScript : MonoBehaviour {
+public class ScoreMenuScript : MonoBehaviour
+{
 
     public GameObject ScoreText0;
     public GameObject ScoreText1;
     public GameObject ScoreText2;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         ScoreManager scoreManager = gameObject.GetComponent<ScoreManager>();
+        if (scoreManager.GetHighScores().Count == 0)
+        {
+            scoreManager.LoadHighscores();
+        }
 
-        scoreManager.LoadHighscores();
 
         List<int> highscores = scoreManager.GetHighScores();
 
@@ -35,10 +40,11 @@ public class ScoreMenuScript : MonoBehaviour {
             }
         }
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
