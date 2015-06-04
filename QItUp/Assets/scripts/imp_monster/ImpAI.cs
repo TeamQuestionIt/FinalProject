@@ -60,7 +60,6 @@ public class ImpAI : MonoBehaviour
                 if (useVariableJumpTimer)
                 {
                     timer = Random.Range(0f, 5f);
-                    //Debug.Log(timer);
                 }
                 else
                 {
@@ -87,7 +86,6 @@ public class ImpAI : MonoBehaviour
 
     private void Jump()
     {
-        //Debug.Log("jump");
         onGround = false;
         GetXDirection();
         float dxToPlayer = Vector2.Distance(transform.position, playerInstance.transform.position);
@@ -103,7 +101,6 @@ public class ImpAI : MonoBehaviour
             force = new Vector2(jumpForce.x * xDirection, jumpForce.y);
         }
 
-        //Debug.Log(force);
         rBody.AddForce(force);
         if (useConstantAttackAnimation)
         {
@@ -150,8 +147,7 @@ public class ImpAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        //hacky should do this better, probably use a ground tag
-        if (col.gameObject.name == characterContrillerScript.nameOfBackgroundObject)
+        if (col.gameObject.name == "ground")
         {
             onGround = true;
         }
@@ -164,9 +160,7 @@ public class ImpAI : MonoBehaviour
         {
             if (playerScript.IsHitBox(col))
             {
-                //Debug.Log("Player hit me.");
                 currentHitPoints -= playerScript.currentDamage;
-                Debug.Log("flash");
                 StartCoroutine(utilityScript.Flash(flashTime));
             }
         }
