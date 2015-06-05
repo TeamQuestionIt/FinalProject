@@ -51,7 +51,6 @@ public class Enemy_Imp : MonoBehaviour {
                 if (useVariableJumpTimer)
                 {
                     timer = Random.Range(0f, 5f);
-                    //Debug.Log(timer);
                 }
                 else
                 {
@@ -65,7 +64,6 @@ public class Enemy_Imp : MonoBehaviour {
 
     private void Jump()
     {
-        //Debug.Log("jump");
         onGround = false;
         GetXDirection();
         float dxToPlayer = Vector2.Distance(transform.position, playerInstance.transform.position);
@@ -81,7 +79,6 @@ public class Enemy_Imp : MonoBehaviour {
             force = new Vector2(jumpForce.x * xDirection, jumpForce.y);
         }
 
-        //Debug.Log(force);
         rBody.AddForce(force);
     }
 
@@ -119,8 +116,7 @@ public class Enemy_Imp : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        //hacky should do this better, probably use a ground tag
-        if (col.gameObject.name == "Street1")
+        if (col.gameObject.name == "ground")
         {
             onGround = true;
         }

@@ -243,9 +243,6 @@ public class Player : MonoBehaviour
         else
         {
             //game over
-            //Debug.Log("implement game over");
-            //check highscores
-            //ScoreManager.SaveHighScores();
             Application.LoadLevel("FINAL_mainMenu");
         }
     }

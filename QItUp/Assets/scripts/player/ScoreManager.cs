@@ -5,6 +5,17 @@ using System.Collections.Generic;
 public class ScoreManager : MonoBehaviour {
 
     public static int Score { get; set; }
+    public bool IsLoaded
+    {
+        get
+        {
+            if(highScores.Count > 0 || PlayerPrefs.GetInt("0") == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
     private static List<int> highScores = new List<int>();
     private const int HIGH_SCORE_COUNT = 3;
 
@@ -21,10 +32,11 @@ public class ScoreManager : MonoBehaviour {
     public static void SaveHighScores()
     {
         //see if we need score added to list
-        if (highScores.Count == 0)
+        if (highScores.Count < HIGH_SCORE_COUNT)
         {
-            //yes only score so know it's good, no sort needed
             highScores.Add(Score);
+            highScores.Sort();
+            highScores.Reverse();
         }
         else if(IsHighScore(Score))
         {
@@ -32,6 +44,9 @@ public class ScoreManager : MonoBehaviour {
             highScores.Add(Score);
             highScores.Sort();
             highScores.Reverse();
+
+            //remove the ones on bottom
+            highScores.RemoveRange(HIGH_SCORE_COUNT, highScores.Count - HIGH_SCORE_COUNT);
         }
         //now add the qty of highscores to disk
         int count = 0;
@@ -76,10 +91,5 @@ public class ScoreManager : MonoBehaviour {
     {
         Score = 0;
     }
-
-	// Use this for initialization
-	void Start () {
-        
-	}
 
 }
