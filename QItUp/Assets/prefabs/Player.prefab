@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.25, y: -1.03999996, z: 0}
+  m_LocalPosition: {x: -11.8997355, y: -1.0418855, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 88cf21b06840018498eff5a94481ae8b, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -.0481512547, y: -.0220373869}
@@ -209,7 +209,6 @@ MonoBehaviour:
   jumpForce: {x: 0, y: 450}
   maxVelocity: 2
   isFacingRight: 1
-  nameOfBackgroundObject: background
   onGround: 1
 --- !u!114 &11445528
 MonoBehaviour:
@@ -217,7 +216,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48f9ec570c2e8ce42b17d089618c89c9, type: 3}
   m_Name: 
@@ -255,7 +254,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f81ee72c2e54984ea7d228ab5ccb22f, type: 3}
   m_Name: 
