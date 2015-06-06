@@ -268,7 +268,7 @@ MonoBehaviour:
   maxMoveSpeed: {x: .75, y: 0}
   moveForce: {x: 0, y: 0}
   attackMaxDistance: 1.5
-  damage: 20
+  damage: 50
   playerScript: {fileID: 0}
 --- !u!114 &11457952
 MonoBehaviour:
@@ -337,8 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikeRange: .5
-  hitPoints: 100
-  currentHitPoints: 100
+  hitPoints: 300
+  currentHitPoints: 300
   playerInstance: {fileID: 110334, guid: 6b257f6c71b5aad4c84a5e85821828e5, type: 2}
   hitBoxes:
   - {fileID: 6129202, guid: 171820d0d902dcd499cf0a9c4543ceba, type: 2}

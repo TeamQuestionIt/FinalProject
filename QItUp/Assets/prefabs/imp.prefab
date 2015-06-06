@@ -159,10 +159,10 @@ MonoBehaviour:
   dxMultiplier: 10
   maxJumpVelocity: {x: 5, y: 54.4300003}
   JumpWaitTimer: 2
-  hitPoints: 50
-  currentHitPoints: 50
+  hitPoints: 200
+  currentHitPoints: 200
   scoreValue: 10
-  damage: 5
+  damage: 25
   useVariableJumpDistance: 1
   useVariableJumpTimer: 1
   useConstantAttackAnimation: 0
