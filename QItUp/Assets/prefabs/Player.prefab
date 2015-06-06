@@ -184,8 +184,8 @@ MonoBehaviour:
   maxRepelVelocity: {x: 5, y: 10}
   maxHitPoints: 300
   currentDamage: 0
-  PowerMoveWaitTime: 3
-  PowerMoveCurrentWaitTime: 3
+  PowerMoveWaitTime: 10
+  PowerMoveCurrentWaitTime: 10
   hitBoxes:
   - {fileID: 6170228, guid: 61d49561914246044b487a8da5f47fae, type: 2}
   - {fileID: 6175562, guid: 61d49561914246044b487a8da5f47fae, type: 2}
