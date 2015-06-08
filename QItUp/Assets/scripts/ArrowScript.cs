@@ -143,8 +143,8 @@ public class ArrowScript : MonoBehaviour {
         } 
         else if (Input.GetButton("Fire1"))
         {
-            DoAction();
             firetime = inputInterval;
+            DoAction();
 
         }
 
@@ -189,6 +189,7 @@ public class ArrowScript : MonoBehaviour {
                         Player.ResetHealth();
                         LifeManager.ResetLives();
                         ScoreManager.resetScore();
+                        firetime = 0.0f;
                         Application.LoadLevel("level_one");
                         break;
                     case 1:
