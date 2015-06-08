@@ -7,9 +7,9 @@ public class MainMenuBGPan : MonoBehaviour {
     public float endY = -6.5f;
 
     public float speed = 0.11f;
-    bool movingDown = true;
+    bool movingDown = false;
     public float stopTime = 5.0f;
-    float stopingTime = 2;
+    float stopingTime = 0;
 
 	// Use this for initialization
 	void Start () {

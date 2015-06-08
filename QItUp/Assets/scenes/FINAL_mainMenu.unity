@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startY: 5.69999981
   endY: -5.69999981
-  speed: .00499999989
+  speed: .000699999975
   stopTime: 10
 --- !u!212 &1878929019
 SpriteRenderer:
