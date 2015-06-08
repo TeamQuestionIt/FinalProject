@@ -152,6 +152,12 @@ public class Player : MonoBehaviour
             timer = PowerMoveWaitTime;
             canPowerMove = true;
         }
+
+        //fix for # 17
+        if (hitPoints > 300)
+        {
+            ResetHealth();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
