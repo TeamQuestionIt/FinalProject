@@ -23,7 +23,7 @@ public class ArrowScript : MonoBehaviour {
 
     public float inputInterval = 0.5f;
     float waitingTime = 0;
-    float firetime = 0;
+    static float firetime = 0;
 
     //menu length trackers hardcoded for safty and time
     const int mainMenuItemCount = 4;
