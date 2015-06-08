@@ -21,12 +21,7 @@ public class PlayerStatus : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-	
-	}
- 
-    private void OnGUI()
-    { 
-    if (healthBar!= null)
+	    if (healthBar!= null)
     {
         healthBar.fillAmount = (float)Player.hitPoints/ playerScript.maxHitPoints;
 
@@ -45,8 +40,6 @@ public class PlayerStatus : MonoBehaviour {
     }
 
     livesText.text = LifeManager.LivesLeft.ToString();
-   
-    }
-
-
+ 
+	}
 }
