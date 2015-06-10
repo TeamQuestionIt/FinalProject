@@ -7,15 +7,15 @@ using System;
 public class Player : MonoBehaviour
 {
     //STATIC
-    public static int hitPoints = 300;
-
+    public static int hitPoints = 100;
+    public int maxHitPoints;
     //this fixes compile bug in BodySwitcher.cs
     public GameObject attackPrefab;
     //velocity of repulsion force if player is hit.
     public Vector2 hitRepelVelocity = new Vector2(3, 5);
     public Vector2 maxRepelVelocity = new Vector2(5, 10);
     
-    public int maxHitPoints;
+   
     public int currentDamage;
     //time between ability to power attack
     public float PowerMoveWaitTime = 3.0f;
